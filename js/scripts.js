@@ -240,31 +240,60 @@ function initSmoothScroll() {
 
 // ===== CONTACT FORM =====
 function initContactForm() {
-    const form = document.querySelector('.contact-form form');
+    const form = document.getElementById('contact-form');
     
     if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Get form data
             const formData = new FormData(form);
             const submitBtn = form.querySelector('.btn-submit');
             const originalText = submitBtn.innerHTML;
+            const statusContainer = document.getElementById('form-status');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
             
             // Show loading state
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual endpoint)
-            setTimeout(() => {
-                // Show success message
-                showNotification('¡Mensaje enviado correctamente! Te contactaré pronto.', 'success');
-                form.reset();
+            // Hide previous messages
+            statusContainer.style.display = 'none';
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
                 
+                if (response.ok) {
+                    // Show success message
+                    statusContainer.style.display = 'block';
+                    successMessage.style.display = 'block';
+                    form.reset();
+                    
+                    // Also show notification
+                    showNotification('¡Mensaje enviado correctamente! Te contactaré pronto.', 'success');
+                } else {
+                    throw new Error('Error en el envío');
+                }
+            } catch (error) {
+                // Show error message
+                statusContainer.style.display = 'block';
+                errorMessage.style.display = 'block';
+                
+                // Also show notification
+                showNotification('Error al enviar el mensaje. Por favor, intenta nuevamente.', 'error');
+            } finally {
                 // Reset button
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            }, 2000);
+            }
         });
     }
 }
@@ -319,11 +348,24 @@ function initTypewriter() {
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
+    
+    let backgroundColor;
+    switch(type) {
+        case 'success':
+            backgroundColor = '#10B981';
+            break;
+        case 'error':
+            backgroundColor = '#EF4444';
+            break;
+        default:
+            backgroundColor = '#3B82F6';
+    }
+    
     notification.style.cssText = `
         position: fixed;
         top: 100px;
         right: 20px;
-        background: ${type === 'success' ? '#10B981' : '#3B82F6'};
+        background: ${backgroundColor};
         color: white;
         padding: 1rem 2rem;
         border-radius: 10px;
@@ -332,6 +374,7 @@ function showNotification(message, type = 'info') {
         transform: translateX(400px);
         transition: transform 0.3s ease;
         max-width: 350px;
+        font-weight: 500;
     `;
     notification.textContent = message;
     

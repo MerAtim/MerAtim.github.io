@@ -840,6 +840,42 @@ section > * {
   box-shadow: var(--shadow-lg);
 }
 
+/* Estilos para mensajes de estado del formulario */
+.form-status {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.success-message {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.success-message i {
+  color: #10B981;
+  margin-right: 0.5rem;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  color: #DC2626;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.error-message i {
+  color: #EF4444;
+  margin-right: 0.5rem;
+}
+
+/* Mejorar notificaciones */
+.notification.error {
+  background: #EF4444;
+}
+
 /* ===== MODALES ===== */
 .modal {
   display: none;

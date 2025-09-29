@@ -733,22 +733,34 @@
           </div>
         </div>
         <div class="contact-form">
-          <form>
+          <form id="contact-form" action="https://formspree.io/f/xvgwaglo" method="POST">
             <div class="form-group">
-              <input type="text" placeholder="Tu nombre" required>
+              <input type="text" name="name" placeholder="Tu nombre" required>
             </div>
             <div class="form-group">
-              <input type="email" placeholder="Tu email" required>
+              <input type="email" name="email" placeholder="Tu email" required>
             </div>
             <div class="form-group">
-              <input type="text" placeholder="Asunto" required>
+              <input type="text" name="subject" placeholder="Asunto" required>
             </div>
             <div class="form-group">
-              <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+              <textarea name="message" placeholder="Tu mensaje" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn-submit">
               <i class="fas fa-paper-plane"></i> Enviar Mensaje
             </button>
+            
+            <!-- Mensajes de estado -->
+            <div id="form-status" class="form-status" style="display: none;">
+              <div id="success-message" class="success-message" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                ¡Mensaje enviado correctamente! Te contactaré pronto.
+              </div>
+              <div id="error-message" class="error-message" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -813,9 +825,9 @@
         <p>Diseñado y desarrollado con <i class="fas fa-heart"></i> y mucho <i class="fas fa-coffee"></i></p>
       </div>
       <div class="footer-social">
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mariamercedesatim-dev/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/MerAtim" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:mariamercedesatim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </footer>
