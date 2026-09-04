@@ -3,863 +3,1098 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portafolio profesional de Maria Mercedes Atim - Desarrolladora FullStack especializada en Java, Python y JavaScript">
-  <meta name="keywords" content="desarrolladora, fullstack, java, python, javascript, programacion, portfolio">
-  <title>Maria Mercedes Atim | Desarrolladora FullStack</title>
+  <title>Maria Mercedes Atim | Desarrolladora Full Stack</title>
+  <meta name="description" content="Portafolio de Maria Mercedes Atim, desarrolladora full stack junior. Java, Spring Boot, PHP, Laravel, Vue 3 y React, con foco en testing, arquitectura limpia y CI/CD.">
+  <meta name="keywords" content="desarrolladora full stack, java, spring boot, laravel, php, vue, react, postgresql, docker, testing, portfolio, argentina">
+  <meta name="author" content="Maria Mercedes Atim">
+  <meta name="theme-color" content="#080D1A">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Maria Mercedes Atim | Desarrolladora Full Stack">
+  <meta property="og:description" content="Java, Spring Boot, PHP, Laravel, Vue 3 y React. Testing, arquitectura limpia y CI/CD en proyectos reales.">
+  <meta property="og:locale" content="es_AR">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script>
+    // Aplica el tema guardado antes del primer pintado, para evitar el parpadeo.
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        var l = localStorage.getItem('lang');
+        if (l !== 'es' && l !== 'en') l = (navigator.language || 'es').toLowerCase().indexOf('es') === 0 ? 'es' : 'en';
+        document.documentElement.setAttribute('data-lang', l);
+        document.documentElement.lang = l;
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
-  <!-- Navbar -->
-  <header>
-    <nav id="navbar">
-      <div class="logo">Maria Mercedes Atim</div>
-      <button id="hamburger" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#education">Educación</a></li>
-        <li><a href="#experience">Experiencia</a></li>
-        <li><a href="#projects">Proyectos</a></li>
-        <li><a href="#skills">Habilidades</a></li>
-        <li><a href="#interests">Intereses</a></li>
-      </ul>
-    </nav>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#inicio">
+        <span class="brand__mark">MMA</span>
+        <span>
+          <span class="brand__name">Maria Mercedes Atim</span>
+          <span class="brand__role">full stack developer</span>
+        </span>
+      </a>
+
+      <nav>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="#experiencia" data-i18n="nav.exp">Experiencia</a></li>
+          <li><a href="#proyectos" data-i18n="nav.proj">Proyectos</a></li>
+          <li><a href="#logros" data-i18n="nav.wins">Logros</a></li>
+          <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
+          <li><a href="#formacion" data-i18n="nav.edu">Formación</a></li>
+          <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn lang-toggle" id="langToggle" aria-label="Switch to English" title="English">
+          <span class="lang-toggle__on">EN</span>
+          <span class="lang-toggle__off">ES</span>
+        </button>
+        <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Cambiar tema" data-i18n-aria="a11y.theme">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+        <button class="icon-btn hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <!-- Inicio -->
-  <main>
-    <section id="intro">
-      <div class="particles-bg"></div>
-      <div class="intro-container">
-        <div class="profile-section">
-          <div class="profile-image">
-            <div class="profile-circle">
-              <i class="fas fa-code"></i>
-            </div>
-          </div>
-          <div class="profile-content">
-            <span class="greeting">¡Hola! Soy</span>
-            <h1 class="name-title">Maria Mercedes Atim</h1>
-            <h2 class="role-title">Desarrolladora FullStack</h2>
-            <p class="description">Especializada en crear experiencias digitales excepcionales con Java, Python y JavaScript. Transformo ideas en soluciones tecnológicas innovadoras.</p>
-            
-            <div class="location-info">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>General San Martin, Buenos Aires, Argentina</span>
-            </div>
-            
-            <div class="contact-actions">
-              <a href="#projects" class="btn-primary">Ver Proyectos</a>
-              <a href="#contact" class="btn-secondary">Contactar</a>
-            </div>
-            
-            <ul class="social-links">
-              <li><a href="https://www.linkedin.com/in/mariamercedesatim-dev/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-              <li><a href="https://github.com/MerAtim" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-              <li><a href="mailto:mariamercedesatim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
-              <li><a href="https://www.canva.com/design/DAGXyAkFNOE/zhxaxxzuIfhoKCSJZHb2RA/edit?utm_content=DAGXyAkFNOE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" aria-label="CV"><i class="fas fa-download"></i></a></li>
-              <li><a href="tel:+5491131509571" aria-label="Teléfono"><i class="fas fa-phone"></i></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="scroll-indicator">
-          <div class="scroll-text">Scroll down</div>
-          <div class="scroll-arrow"></div>
-        </div>
-      </div>
-    </section>
+  <main id="main">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
 
-    <!-- Educación -->
-    <section id="education">
-      <div class="section-header">
-        <h2><i class="fas fa-graduation-cap"></i> Formación Académica</h2>
-        <p class="section-subtitle">Mi trayectoria educativa y certificaciones profesionales</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item" data-year="2024">
-          <div class="timeline-marker">
-            <i class="fas fa-university"></i>
+      <div class="wrap hero__inner">
+        <div>
+          <p class="hero__eyebrow">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span data-i18n="hero.available">Disponible para trabajar</span>
+          </p>
+
+          <h1 class="hero__name" data-i18n="hero.name">
+            Hola, soy <span class="grad-text">Mercedes</span>
+          </h1>
+
+          <p class="hero__role" id="typedRole" aria-label="Desarrolladora Full Stack">
+            <span id="typedText"></span><span class="caret" aria-hidden="true"></span>
+          </p>
+
+          <p class="hero__desc" data-i18n="hero.desc">
+            Desarrolladora full stack con experiencia en <strong>equipos reales</strong>:
+            trabajo con Java y Spring Boot en backend, PHP y Laravel en producción,
+            y Vue 3 o React del lado del cliente. Me interesa el código que se puede
+            mantener: <strong>tests, arquitectura en capas y CI/CD</strong> desde el primer commit.
+          </p>
+
+          <div class="hero__meta">
+            <span><i class="fas fa-location-dot"></i> <span data-i18n="hero.loc">General San Martín, Buenos Aires</span></span>
+            <span><i class="fas fa-graduation-cap"></i> <span data-i18n="hero.degree">Técnica en Programación · UTN</span></span>
+            <span><i class="fas fa-language"></i> <span data-i18n="hero.lang">Inglés C1</span></span>
           </div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3>Técnica Universitaria en Programación</h3>
-              <span class="timeline-date">2024</span>
-            </div>
-            <p>Formación integral en desarrollo de software, abarcando lenguajes fundamentales como Java, Python y JavaScript. Enfoque en metodologías ágiles y buenas prácticas de programación.</p>
-            <div class="skills-tags">
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">R</span>
-              <span class="skill-tag">Metodologías Ágiles</span>
-            </div>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#proyectos">
+              <i class="fas fa-folder-open"></i> <span data-i18n="hero.cta.projects">Ver proyectos</span>
+            </a>
+            <a class="btn btn--ghost" href="./assets/CV-Maria-Mercedes-Atim-ES.pdf" download data-i18n-href="cv.file">
+              <i class="fas fa-file-arrow-down"></i> <span data-i18n="hero.cta.cv">Descargar CV</span>
+            </a>
+            <a class="btn btn--ghost" href="#contacto">
+              <i class="fas fa-paper-plane"></i> <span data-i18n="hero.cta.contact">Contactame</span>
+            </a>
           </div>
+
+          <ul class="socials">
+            <li><a href="https://github.com/MerAtim" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/mariamercedesatim-dev/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="mailto:mariamercedesatim@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a></li>
+          </ul>
         </div>
-        
-        <div class="timeline-item" data-year="2023">
-          <div class="timeline-marker">
-            <i class="fas fa-bug"></i>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3>Quality Assurance Manual</h3>
-              <span class="timeline-date">2023</span>
+
+        <div class="hero__visual reveal">
+          <figure class="hero__photo">
+            <img src="./assets/Mer.jpeg" alt="Maria Mercedes Atim" data-i18n-alt="hero.photo" width="800" height="800">
+          </figure>
+
+          <div class="terminal">
+            <div class="terminal__bar">
+              <span class="terminal__dot"></span>
+              <span class="terminal__dot"></span>
+              <span class="terminal__dot"></span>
+              <span class="terminal__title">perfil.js</span>
             </div>
-            <p>Especialización en pruebas de calidad de software, diseño de casos de prueba, ejecución de pruebas manuales y documentación de resultados.</p>
-            <div class="diploma-buttons">
-              <button class="diploma-btn modal-button" data-modal="./assets/Testing.png">
-                <i class="fas fa-certificate"></i> Diploma QA
-              </button>
-              <button class="diploma-btn modal-button" data-modal="./assets/TestingAvanzado.png">
-                <i class="fas fa-certificate"></i> QA Avanzado
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="timeline-item" data-year="2023-2024">
-          <div class="timeline-marker">
-            <i class="fas fa-code"></i>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3>Desarrollo FullStack Java</h3>
-              <span class="timeline-date">2023-2024</span>
-            </div>
-            <p>Formación completa en desarrollo full-stack con Java, incluyendo backend con Spring Framework y frontend con tecnologías modernas.</p>
-            <div class="diploma-buttons">
-              <button class="diploma-btn modal-button" data-modal="./assets/PrimerTramo.png">
-                <i class="fas fa-certificate"></i> Primer Tramo
-              </button>
-              <button class="diploma-btn modal-button" data-modal="./assets/SegundoTramo.png">
-                <i class="fas fa-certificate"></i> Segundo Tramo
-              </button>
-              <button class="diploma-btn modal-button" data-modal="./assets/TercerTramo.png">
-                <i class="fas fa-certificate"></i> Tercer Tramo
-              </button>
-              <button class="diploma-btn modal-button" data-modal="./assets/cac.png">
-                <i class="fas fa-certificate"></i> Certificación CAC
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="timeline-item" data-year="2024">
-          <div class="timeline-marker">
-            <i class="fas fa-palette"></i>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3>Diseño Gráfico</h3>
-              <span class="timeline-date">2024</span>
-            </div>
-            <p>Capacitación en herramientas de diseño profesional, incluyendo Adobe Photoshop e Illustrator para crear interfaces visuales atractivas.</p>
-            <div class="diploma-buttons">
-              <button class="diploma-btn modal-button" data-modal="./assets/DisenioGrafico.png">
-                <i class="fas fa-certificate"></i> Ver Diploma
-              </button>
-            </div>
+            <pre class="terminal__body"><code data-i18n="term.code"><span class="k">const</span> dev <span class="p">=</span> {
+  java<span class="p">:</span>    [<span class="s">"Spring Boot"</span><span class="p">,</span> <span class="s">"JPA"</span>]<span class="p">,</span>
+  php<span class="p">:</span>     [<span class="s">"Laravel"</span><span class="p">,</span> <span class="s">"Sanctum"</span>]<span class="p">,</span>
+  front<span class="p">:</span>   [<span class="s">"Vue 3"</span><span class="p">,</span> <span class="s">"React"</span>]<span class="p">,</span>
+  datos<span class="p">:</span>   [<span class="s">"PostgreSQL"</span><span class="p">,</span> <span class="s">"MySQL"</span>]<span class="p">,</span>
+  tests<span class="p">:</span>   [<span class="s">"JUnit"</span><span class="p">,</span> <span class="s">"PHPUnit"</span>]<span class="p">,</span>
+  devops<span class="p">:</span>  [<span class="s">"Docker"</span><span class="p">,</span> <span class="s">"CI/CD"</span>]<span class="p">,</span>
+  idiomas<span class="p">:</span> { es<span class="p">:</span> <span class="s">"nativo"</span><span class="p">,</span> en<span class="p">:</span> <span class="s">"C1"</span> }
+}<span class="p">;</span></code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Experiencia -->
-    <section id="experience">
-      <h2>Experiencia</h2>
-      <div class="experience-item">
-        <h3>Desarrolladora FullStack</h3>
-        <p><strong>Duración:</strong> Noviembre 2022 / Septiembre 2024</p>
-        <ul>
-          <li>Participación en el desarrollo de aplicaciones para la Universidad de La Punta (San Luis).</li>
-          <li>Grupo "CTRL-Z": Diseño de soluciones informáticas para consultorios médicos.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Proyectos -->
-    <section id="projects">
-      <div class="section-header">
-        <h2><i class="fas fa-laptop-code"></i> Proyectos Destacados</h2>
-        <p class="section-subtitle">Soluciones innovadoras que he desarrollado</p>
-      </div>
-      <div class="projects-container">
-        <div class="project-card">
-          <div class="project-image">
-            <i class="fas fa-graduation-cap"></i>
+    <!-- ===== EXPERIENCIA ===== -->
+    <section class="section section--alt" id="experiencia">
+      <div class="wrap">
+        <div class="stats reveal">
+          <div class="stat">
+            <div class="stat__num grad-text" data-count="8">8</div>
+            <div class="stat__label" data-i18n="stat.projects">Proyectos desarrollados</div>
           </div>
-          <div class="project-content">
-            <h3>ULP Universidad</h3>
-            <p>Sistema completo de gestión académica desarrollado en Java con interfaz gráfica Swing. Incluye módulos de inscripción, seguimiento académico y reportes.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Java</span>
-              <span class="tech-tag">Swing</span>
-              <span class="tech-tag">MySQL</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/MerAtim/Proyecto-ULP-GRUPO-67" class="project-link">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-            </div>
+          <div class="stat">
+            <div class="stat__num grad-text" data-count="4">4</div>
+            <div class="stat__label" data-i18n="stat.teams">Experiencias en equipos reales</div>
           </div>
-        </div>
-        
-        <div class="project-card">
-          <div class="project-image">
-            <i class="fas fa-heartbeat"></i>
+          <div class="stat">
+            <div class="stat__num grad-text">C1</div>
+            <div class="stat__label" data-i18n="stat.english">Inglés avanzado</div>
           </div>
-          <div class="project-content">
-            <h3>Mas Salud</h3>
-            <p>Aplicación integral para la gestión de consultorios médicos, desarrollada como parte del grupo CTRL-Z. Incluye agenda, historiales clínicos y reportes.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Java</span>
-              <span class="tech-tag">Spring Boot</span>
-              <span class="tech-tag">JPA</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/MerAtim/clonMasSalud21-10" class="project-link">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card">
-          <div class="project-image">
-            <i class="fas fa-map-marked-alt"></i>
-          </div>
-          <div class="project-content">
-            <h3>CAC Turismo</h3>
-            <p>Plataforma web completa para promocionar el turismo argentino. Frontend responsive con HTML/CSS y backend robusto en Java con base de datos.</p>
-            <div class="project-tech">
-              <span class="tech-tag">HTML/CSS</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">Java</span>
-              <span class="tech-tag">Spring</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/MerAtim/CAC-Turismo" class="project-link">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-            </div>
+          <div class="stat">
+            <div class="stat__num grad-text">2026</div>
+            <div class="stat__label" data-i18n="stat.degree">Técnica en Programación · UTN</div>
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-image">
-            <i class="fas fa-map-marked-alt"></i>
-          </div>
-          <div class="project-content">
-            <h3>Capy Market</h3>
-            <p>E-Commerce. Incluye funcionalidades de carrito de compras, gestión de productos y pagos en línea.</p>
-            <div class="project-tech">
-              <span class="tech-tag">HTML/CSS</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">API MercadoPago</span>
+        <div class="section__head mt-xl">
+          <p class="section__tag" data-i18n="sec.exp.tag">Trayectoria</p>
+          <h2 class="section__title" data-i18n="sec.exp.title">Experiencia profesional</h2>
+          <p class="section__sub" data-i18n="sec.exp.sub">
+            Equipos reales, tickets, pull requests y código que otras personas tienen que leer después.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="tl-item reveal">
+            <span class="tl-item__dot"><i class="fas fa-code"></i></span>
+            <div class="card">
+              <div class="tl-head">
+                <h3 data-i18n="t086">Desarrolladora Full Stack (PHP / Vue)</h3>
+                <span class="tl-date" data-i18n="t113">Ago 2026 — Actualidad</span>
+              </div>
+              <p class="tl-org" data-i18n="t122">Pasantía · Academia de programación online</p>
+              <ul class="tl-list">
+                <li data-i18n="t001">Desarrollo sobre una plataforma de e-learning en producción con <strong>Laravel y Vue 3</strong>, en arquitectura Controller / Service / Repository.</li>
+                <li data-i18n="t002">Trabajo por tickets con <strong>una rama por tarea, pull requests y revisión de código</strong>; commits convencionales.</li>
+                <li data-i18n="t003"><strong>Tests como parte del desarrollo</strong>: PHPUnit contra base de datos real y Vitest en el frontend, con mutation testing sobre los archivos que modifico.</li>
+                <li data-i18n="t004">Detección y reporte de <strong>dos incidencias críticas</strong> antes de que llegaran a producción (ver Logros).</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Laravel</span>
+                <span class="chip">Vue 3</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">PHPUnit</span>
+                <span class="chip">Vitest</span>
+                <span class="chip">Tailwind</span>
+                <span class="chip">Git Flow</span>
+              </div>
             </div>
-            <div class="project-links">
-              <a href="https://github.com/MerAtim/CapyMarket" class="project-link">
-                <i class="fab fa-github"></i> GitHub
-              </a>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__dot"><i class="fas fa-users"></i></span>
+            <div class="card">
+              <div class="tl-head">
+                <h3 data-i18n="t087">Scrum Master · QA · Coordinación</h3>
+                <span class="tl-date" data-i18n="t114">Sep 2025 — Jul 2026</span>
+              </div>
+              <p class="tl-org" data-i18n="t123">Sitio web corporativo · Ferretería San Francisco</p>
+              <ul class="tl-list">
+                <li data-i18n="t005">Coordiné el equipo como <strong>Scrum Master</strong>: organización de reuniones, reparto de tareas y seguimiento de entregas.</li>
+                <li data-i18n="t006">Acompañé a desarrolladores junior en su primera experiencia en un entorno de trabajo profesional.</li>
+                <li data-i18n="t007"><strong>Testing manual</strong> del sitio y control de calidad previo a la publicación.</li>
+                <li data-i18n="t008">Gestión de la <strong>compra del dominio y su vinculación</strong> hasta dejar el sitio en producción.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip" data-i18n="t211">Scrum</span>
+                <span class="chip" data-i18n="t205">QA Manual</span>
+                <span class="chip" data-i18n="t203">Coordinación de equipo</span>
+                <span class="chip" data-i18n="t216">Deploy &amp; dominio</span>
+              </div>
             </div>
-          </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__dot"><i class="fas fa-industry"></i></span>
+            <div class="card">
+              <div class="tl-head">
+                <h3 data-i18n="t088">Desarrolladora · Testing · Planificación</h3>
+                <span class="tl-date" data-i18n="t115">Nov 2025 — Feb 2026</span>
+              </div>
+              <p class="tl-org" data-i18n="t124">Plataforma de gestión de mantenimiento · Sector oil &amp; gas</p>
+              <ul class="tl-list">
+                <li data-i18n="t009">Participé en el desarrollo de una plataforma de <strong>gestión de tareas para paradas de planta</strong>.</li>
+                <li data-i18n="t010">Colaboración en desarrollo, testing, planificación y entrega dentro de los plazos acordados.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Python</span>
+                <span class="chip" data-i18n="t214">Testing</span>
+                <span class="chip" data-i18n="t215">Ágil</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__dot"><i class="fas fa-laptop-code"></i></span>
+            <div class="card">
+              <div class="tl-head">
+                <h3 data-i18n="t089">Desarrolladora Full Stack</h3>
+                <span class="tl-date" data-i18n="t116">Nov 2022 — Sep 2024</span>
+              </div>
+              <p class="tl-org" data-i18n="t125">Universidad de La Punta (San Luis) · Grupo CTRL-Z</p>
+              <ul class="tl-list">
+                <li data-i18n="t011">Desarrollo de aplicaciones para la Universidad de La Punta.</li>
+                <li data-i18n="t012">Diseño de soluciones informáticas para consultorios médicos junto al grupo CTRL-Z.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Java</span>
+                <span class="chip">Spring Boot</span>
+                <span class="chip">MySQL</span>
+                <span class="chip">Java Swing</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Habilidades -->
-    <section id="skills">
-      <div class="section-header">
-        <h2><i class="fas fa-cogs"></i> Tech Stack & Habilidades</h2>
-        <p class="section-subtitle">Tecnologías, herramientas y frameworks que domino profesionalmente</p>
-      </div>
-      <div class="skills-container">
-        
-        <!-- Lenguajes de Programación -->
-        <div class="skills-category">
-          <div class="category-header">
-            <i class="fas fa-code"></i>
-            <h3>Lenguajes de Programación</h3>
-          </div>
-          <div class="skills-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Java</span>
-                <span class="skill-percentage">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Python</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">JavaScript</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">HTML5 & CSS3</span>
-                <span class="skill-percentage">95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="95"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">R</span>
-                <span class="skill-percentage">70%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="70"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Markdown</span>
-                <span class="skill-percentage">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90"></div>
-              </div>
-            </div>
-          </div>
+    <!-- ===== PROYECTOS ===== -->
+    <section class="section" id="proyectos">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="section__tag" data-i18n="sec.proj.tag">Portafolio</p>
+          <h2 class="section__title" data-i18n="sec.proj.title">Proyectos destacados</h2>
+          <p class="section__sub" data-i18n="sec.proj.sub">
+            Cuatro proyectos con arquitectura, tests y despliegue real. Tocá
+            <strong>Ver detalle</strong> para el stack completo y las decisiones técnicas.
+          </p>
         </div>
-        
-        <!-- Frameworks y Librerías -->
-        <div class="skills-category">
-          <div class="category-header">
-            <i class="fas fa-layer-group"></i>
-            <h3>Frameworks & Librerías</h3>
-          </div>
-          <div class="skills-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Spring Boot</span>
-                <span class="skill-percentage">85%</span>
+
+        <div class="projects projects--featured">
+          <!-- E-learning -->
+          <article class="pcard reveal">
+            <div class="pcard__top pcard__top--a">
+              <span class="pcard__badge" data-i18n="t131">Pasantía · en producción</span>
+              <i class="fas fa-chalkboard-user pcard__icon"></i>
+            </div>
+            <div class="pcard__body">
+              <h3 data-i18n="t090">Plataforma de e-learning</h3>
+              <p class="pcard__tagline" data-i18n="t135">Laravel 8 · Vue 3 · PostgreSQL</p>
+              <p class="pcard__desc" data-i18n="t139">
+                Plataforma para una academia de programación: ejercicios de código que se
+                autoevalúan contra tests, quizzes interactivos, gamificación con puntos y
+                rachas, venta de cursos y un motor de emails que segmenta alumnos según su
+                actividad.
+              </p>
+              <div class="chips">
+                <span class="chip">Laravel</span>
+                <span class="chip">Vue 3</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">PHPUnit</span>
+                <span class="chip">Playwright</span>
+                <span class="chip">Docker</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
+              <div class="pcard__actions">
+                <button class="btn btn--ghost btn--sm js-project" data-project="elearning">
+                  <i class="fas fa-circle-info"></i> <span data-i18n="t220">Ver detalle</span>
+                </button>
+                <span class="chip chip--plain"><i class="fas fa-lock"></i> <span data-i18n="t204">Código privado del cliente</span></span>
               </div>
             </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">React</span>
-                <span class="skill-percentage">75%</span>
+          </article>
+
+          <!-- CapyMeal -->
+          <article class="pcard reveal">
+            <div class="pcard__top pcard__top--b">
+              <span class="pcard__badge" data-i18n="t132">Personal · PWA</span>
+              <i class="fas fa-utensils pcard__icon"></i>
+            </div>
+            <div class="pcard__body">
+              <h3 data-i18n="t091">CapyMeal</h3>
+              <p class="pcard__tagline" data-i18n="t136">Vue 3 · Laravel 12 · PostgreSQL</p>
+              <p class="pcard__desc" data-i18n="t140">
+                Diario personal de comidas, con Capi el carpincho como mascota. Login social
+                con Google y Microsoft, export a PDF, PWA instalable que funciona offline y
+                APK de Android sin pasar por Play Store.
+              </p>
+              <div class="chips">
+                <span class="chip">Vue 3</span>
+                <span class="chip">Vuetify</span>
+                <span class="chip">Laravel 12</span>
+                <span class="chip">OAuth2</span>
+                <span class="chip">PWA</span>
+                <span class="chip">GitHub Actions</span>
+                <span class="chip">Sentry</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="75"></div>
+              <div class="pcard__actions">
+                <button class="btn btn--ghost btn--sm js-project" data-project="capymeal">
+                  <i class="fas fa-circle-info"></i> <span data-i18n="t221">Ver detalle</span>
+                </button>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/CapyMeal/CapyMeal" target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i> <span data-i18n="t224">Código</span>
+                </a>
               </div>
             </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Vue.js</span>
-                <span class="skill-percentage">80%</span>
+          </article>
+
+          <!-- MedConnect -->
+          <article class="pcard reveal">
+            <div class="pcard__top pcard__top--c">
+              <span class="pcard__badge" data-i18n="t133">Full Stack · Java</span>
+              <i class="fas fa-stethoscope pcard__icon"></i>
+            </div>
+            <div class="pcard__body">
+              <h3 data-i18n="t092">MedConnect</h3>
+              <p class="pcard__tagline" data-i18n="t137">Java 17 · Spring Boot 3.2 · React 18</p>
+              <p class="pcard__desc" data-i18n="t141">
+                Gestión de turnos e historias clínicas con roles de Administrador, Médico y
+                Paciente. Arquitectura hexagonal, autenticación JWT en cookie httpOnly e
+                historia clínica cifrada AES-256-GCM en base de datos.
+              </p>
+              <div class="chips">
+                <span class="chip">Spring Boot</span>
+                <span class="chip">Spring Security</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">Flyway</span>
+                <span class="chip">React 18</span>
+                <span class="chip">Testcontainers</span>
+                <span class="chip">Docker</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
+              <div class="pcard__actions">
+                <button class="btn btn--ghost btn--sm js-project" data-project="medconnect">
+                  <i class="fas fa-circle-info"></i> <span data-i18n="t222">Ver detalle</span>
+                </button>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/MerAtim/MediConnect" target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i> <span data-i18n="t225">Código</span>
+                </a>
               </div>
             </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Bootstrap</span>
-                <span class="skill-percentage">90%</span>
+          </article>
+
+          <!-- Ferretería -->
+          <article class="pcard reveal">
+            <div class="pcard__top pcard__top--d">
+              <span class="pcard__badge" data-i18n="t134">Scrum Master · online</span>
+              <i class="fas fa-screwdriver-wrench pcard__icon"></i>
+            </div>
+            <div class="pcard__body">
+              <h3 data-i18n="t093">Ferretería San Francisco</h3>
+              <p class="pcard__tagline" data-i18n="t138">Sitio corporativo en producción</p>
+              <p class="pcard__desc" data-i18n="t142">
+                Sitio web institucional del comercio, publicado en su propio dominio. Coordiné
+                el equipo como Scrum Master, hice el testing manual y gestioné la compra y
+                vinculación del dominio hasta dejarlo online.
+              </p>
+              <div class="chips">
+                <span class="chip" data-i18n="t212">Scrum</span>
+                <span class="chip" data-i18n="t206">QA Manual</span>
+                <span class="chip">HTML / CSS / JS</span>
+                <span class="chip" data-i18n="t217">Dominio &amp; deploy</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90"></div>
+              <div class="pcard__actions">
+                <button class="btn btn--ghost btn--sm js-project" data-project="ferreteria">
+                  <i class="fas fa-circle-info"></i> <span data-i18n="t223">Ver detalle</span>
+                </button>
+                <a class="btn btn--ghost btn--sm" href="https://www.ferreteriasanfrancisco.com.ar" target="_blank" rel="noopener">
+                  <i class="fas fa-arrow-up-right-from-square"></i> <span data-i18n="t229">Ver sitio</span>
+                </a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/Ferreteria-San-Francisco/ferreteria-san-francisco-web" target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i> <span data-i18n="t226">Código</span>
+                </a>
               </div>
             </div>
-          </div>
+          </article>
         </div>
-        
-        <!-- Bases de Datos -->
-        <div class="skills-category">
-          <div class="category-header">
-            <i class="fas fa-database"></i>
-            <h3>Bases de Datos</h3>
-          </div>
-          <div class="skills-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">MySQL</span>
-                <span class="skill-percentage">85%</span>
+
+        <h3 class="subhead" data-i18n="sec.proj.academic">Proyectos académicos y de formación</h3>
+
+        <div class="projects projects--minor">
+          <article class="pcard pcard--minor reveal">
+            <div class="pcard__top pcard__top--e"><i class="fas fa-graduation-cap pcard__icon"></i></div>
+            <div class="pcard__body">
+              <h3 data-i18n="t094">ULP Universidad</h3>
+              <p class="pcard__desc" data-i18n="t143">Sistema de gestión académica de escritorio: inscripciones, seguimiento y reportes.</p>
+              <div class="chips">
+                <span class="chip chip--plain">Java</span>
+                <span class="chip chip--plain">Swing</span>
+                <span class="chip chip--plain">MySQL</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">PostgreSQL</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
+              <div class="pcard__actions">
+                <span class="chip chip--plain"><i class="fas fa-lock"></i> <span data-i18n="t208">Repo privado</span></span>
               </div>
             </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">MongoDB</span>
-                <span class="skill-percentage">75%</span>
+          </article>
+
+          <article class="pcard pcard--minor reveal">
+            <div class="pcard__top pcard__top--e"><i class="fas fa-map-location-dot pcard__icon"></i></div>
+            <div class="pcard__body">
+              <h3 data-i18n="t095">Turismo Argentina</h3>
+              <p class="pcard__desc" data-i18n="t144">Sitio responsive de turismo argentino, con frontend y backend conectados a MySQL.</p>
+              <div class="chips">
+                <span class="chip chip--plain">HTML / CSS / JS</span>
+                <span class="chip chip--plain">Java Maven</span>
+                <span class="chip chip--plain">MySQL</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="75"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">MariaDB</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
+              <div class="pcard__actions">
+                <span class="chip chip--plain"><i class="fas fa-lock"></i> <span data-i18n="t209">Repo privado</span></span>
               </div>
             </div>
-          </div>
-        </div>
-        
-        <!-- IDEs y Editores -->
-        <div class="skills-category">
-          <div class="category-header">
-            <i class="fas fa-laptop-code"></i>
-            <h3>IDEs & Editores</h3>
-          </div>
-          <div class="skills-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">VS Code</span>
-                <span class="skill-percentage">95%</span>
+          </article>
+
+          <article class="pcard pcard--minor reveal">
+            <div class="pcard__top pcard__top--e"><i class="fas fa-cart-shopping pcard__icon"></i></div>
+            <div class="pcard__body">
+              <h3 data-i18n="t096">Capy Market</h3>
+              <p class="pcard__desc" data-i18n="t145">E-commerce con carrito, gestión de productos y pagos integrados con Mercado Pago.</p>
+              <div class="chips">
+                <span class="chip chip--plain">JavaScript</span>
+                <span class="chip chip--plain">Mercado Pago</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="95"></div>
+              <div class="pcard__actions">
+                <a class="btn btn--ghost btn--sm" href="https://github.com/MerAtim/CapyMarket" target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i> <span data-i18n="t227">Código</span>
+                </a>
               </div>
             </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">NetBeans</span>
-                <span class="skill-percentage">90%</span>
+          </article>
+
+          <article class="pcard pcard--minor reveal">
+            <div class="pcard__top pcard__top--e"><i class="fas fa-terminal pcard__icon"></i></div>
+            <div class="pcard__body">
+              <h3 data-i18n="t097">Capybara Films</h3>
+              <p class="pcard__desc" data-i18n="t146">Compra de entradas de cine por consola: registro de cliente, elección de película, sala y butacas.</p>
+              <div class="chips">
+                <span class="chip chip--plain">Python</span>
+                <span class="chip chip--plain">POO</span>
+                <span class="chip chip--plain">Patrón DAO</span>
+                <span class="chip chip--plain">Tests</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Eclipse</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">PyCharm</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
+              <div class="pcard__actions">
+                <span class="chip chip--plain"><i class="fas fa-lock"></i> <span data-i18n="t210">Repo privado</span></span>
               </div>
             </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">RStudio</span>
-                <span class="skill-percentage">75%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="75"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">IntelliJ</span>
-                <span class="skill-percentage">95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="95"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Herramientas de Desarrollo -->
-        <div class="skills-category">
-          <div class="category-header">
-            <i class="fas fa-tools"></i>
-            <h3>Herramientas de Desarrollo</h3>
-          </div>
-          <div class="skills-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Git & GitHub</span>
-                <span class="skill-percentage">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Docker</span>
-                <span class="skill-percentage">70%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="70"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Postman</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Studio 3T</span>
-                <span class="skill-percentage">75%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="75"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Jira</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Diseño y Creatividad -->
-        <div class="skills-category">
-          <div class="category-header">
-            <i class="fas fa-palette"></i>
-            <h3>Diseño & Creatividad</h3>
-          </div>
-          <div class="skills-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Adobe Photoshop</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Adobe Illustrator</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Canva</span>
-                <span class="skill-percentage">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Cloud & Deployment -->
-        <div class="skills-category">
-          <div class="category-header">
-            <i class="fas fa-cloud"></i>
-            <h3>Cloud & Deployment</h3>
-          </div>
-          <div class="skills-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Netlify</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Vercel</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Render</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">AWS</span>
-                <span class="skill-percentage">60%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="60"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Metodologías & QA -->
-        <div class="skills-category">
-          <div class="category-header">
-            <i class="fas fa-bug"></i>
-            <h3>Testing & Metodologías</h3>
-          </div>
-          <div class="skills-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Testing Manual/QA</span>
-                <span class="skill-percentage">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Metodologías Ágiles</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Bizagi (BPM)</span>
-                <span class="skill-percentage">75%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="75"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Herramientas Adicionales -->
-        <div class="skills-category">
-          <div class="category-header">
-            <i class="fas fa-wrench"></i>
-            <h3>Herramientas Adicionales</h3>
-          </div>
-          <div class="skills-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">TeamViewer</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Prezi</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
+          </article>
+
+</div>
       </div>
     </section>
 
-    <!-- Intereses -->
-    <section id="interests">
-      <div class="section-header">
-        <h2><i class="fas fa-heart"></i> Intereses Profesionales</h2>
-        <p class="section-subtitle">Lo que me motiva en el mundo tecnológico</p>
-      </div>
-      <div class="interests-container">
-        <div class="interest-item">
-          <i class="fab fa-osi"></i>
-          <h3>Open Source</h3>
-          <p>Contribución activa a proyectos de código abierto y colaboración con la comunidad de desarrolladores.</p>
+    <!-- ===== LOGROS ===== -->
+    <section class="section section--alt" id="logros">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="section__tag" data-i18n="sec.wins.tag">Impacto</p>
+          <h2 class="section__title" data-i18n="sec.wins.title">Logros técnicos concretos</h2>
+          <p class="section__sub" data-i18n="sec.wins.sub">
+            Situaciones reales de trabajo. Cuentan más sobre cómo pienso que una lista de tecnologías.
+          </p>
         </div>
-        <div class="interest-item">
-          <i class="fas fa-rocket"></i>
-          <h3>Nuevas Tecnologías</h3>
-          <p>Exploración constante de tendencias emergentes y adopción de herramientas innovadoras.</p>
-        </div>
-        <div class="interest-item">
-          <i class="fas fa-brain"></i>
-          <h3>Inteligencia Artificial</h3>
-          <p>Investigación y aplicación de IA en el desarrollo de soluciones inteligentes.</p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Contacto -->
-    <section id="contact">
-      <div class="section-header">
-        <h2><i class="fas fa-envelope"></i> ¡Trabajemos Juntos!</h2>
-        <p class="section-subtitle">¿Tienes un proyecto en mente? Me encantaría escucharte</p>
-      </div>
-      <div class="contact-container">
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
+
+        <div class="wins">
+          <article class="win reveal">
+            <span class="win__icon"><i class="fas fa-clock-rotate-left"></i></span>
             <div>
-              <h4>Ubicación</h4>
-              <p>General San Martin, Buenos Aires, Argentina</p>
+              <h3 data-i18n="t098">Bug de zona horaria en un componente compartido</h3>
+              <p data-i18n="win.p1">
+                Un selector de fechas mostraba el día anterior al elegido: el string
+                <code>YYYY-MM-DD</code> se interpretaba como medianoche UTC y, en un huso detrás
+                de UTC, los getters locales devolvían el día previo. Afectaba a
+                <strong>16 pantallas</strong> del panel. Además de corregirlo, escribí tests que
+                fijan la zona horaria explícitamente, porque el entorno de tests corría en UTC y
+                sin eso habrían pasado igual con el bug presente.
+              </p>
             </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
+          </article>
+
+          <article class="win reveal">
+            <span class="win__icon"><i class="fas fa-shield-halved"></i></span>
             <div>
-              <h4>Teléfono</h4>
-              <p>+54 9 11 3150-9571</p>
+              <h3 data-i18n="t099">Riesgo de pérdida de datos detectado antes de producción</h3>
+              <p data-i18n="win.p2">
+                Investigando por qué una pantalla de configuración aparecía vacía, encontré que
+                dos procesos de carga borraban las lecciones de un curso para recrearlas, y que
+                el progreso de los alumnos colgaba de esas lecciones con
+                <strong>borrado en cascada</strong>. Ejecutarlos en producción habría eliminado el
+                progreso real, sin recuperación posible. Lo reporté con la cadena completa de
+                causa y efecto.
+              </p>
             </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
+          </article>
+
+          <article class="win reveal">
+            <span class="win__icon"><i class="fas fa-clipboard-check"></i></span>
             <div>
-              <h4>Email</h4>
-              <p>mariamercedesatim@gmail.com</p>
+              <h3 data-i18n="t100">Revisión técnica previa a un desarrollo en equipo</h3>
+              <p data-i18n="win.p3">
+                Antes de arrancar un desarrollo de dos semanas entre tres personas, revisé los
+                <strong>14 tickets</strong> del proyecto contra el código real. Encontré tres
+                fragmentos propuestos que fallaban al ejecutarse, un servicio que se pedía
+                construir y ya existía con mayor cobertura, y un ticket cuyo alcance real era
+                cuatro veces el descrito. Lo documenté con archivo y línea, y el equipo no perdió
+                el primer día.
+              </p>
             </div>
-          </div>
+          </article>
+
+          <article class="win reveal">
+            <span class="win__icon"><i class="fas fa-key"></i></span>
+            <div>
+              <h3 data-i18n="t101">Migración de autenticación a cookie httpOnly</h3>
+              <p data-i18n="win.p4">
+                En CapyMeal moví el token de <code>localStorage</code> a una cookie
+                <strong>httpOnly</strong> a partir de un hallazgo de seguridad de un compañero.
+                En el camino aparecieron problemas no obvios de una arquitectura cross-origin
+                real: Sanctum sobreescribe <code>SameSite</code> en runtime, y su patrón estándar
+                de cookie CSRF no funciona cuando frontend y backend no comparten dominio. Cada
+                hipótesis se verificó contra el backend desplegado, no solo en local.
+              </p>
+            </div>
+          </article>
         </div>
-        <div class="contact-form">
-          <form id="contact-form" action="https://formspree.io/f/xvgwaglo" method="POST">
-            <div class="form-group">
-              <input type="text" name="name" placeholder="Tu nombre" required>
+      </div>
+    </section>
+
+    <!-- ===== STACK ===== -->
+    <section class="section" id="stack">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="section__tag" data-i18n="sec.stack.tag">Tecnologías</p>
+          <h2 class="section__title" data-i18n="sec.stack.title">Stack técnico</h2>
+          <p class="section__sub" data-i18n="sec.stack.sub">
+            Lo que uso hoy, agrupado por área. Todo lo que está acá lo trabajé en algún
+            proyecto real, no solo en un tutorial.
+          </p>
+        </div>
+
+        <div class="stack">
+          <article class="stack__card reveal">
+            <div class="stack__head">
+              <i class="fas fa-server"></i>
+              <h3 data-i18n="t102">Backend</h3>
             </div>
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Tu email" required>
+            <p class="stack__note" data-i18n="t147">Donde más cómoda me siento.</p>
+            <div class="chips">
+              <span class="chip">Java 17</span>
+              <span class="chip">Spring Boot 3</span>
+              <span class="chip">Spring Security</span>
+              <span class="chip">Spring Data JPA</span>
+              <span class="chip">PHP 8</span>
+              <span class="chip">Laravel</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip">JWT</span>
+              <span class="chip">Maven</span>
+              <span class="chip">Python</span>
             </div>
-            <div class="form-group">
-              <input type="text" name="subject" placeholder="Asunto" required>
+          </article>
+
+          <article class="stack__card reveal">
+            <div class="stack__head">
+              <i class="fas fa-palette"></i>
+              <h3 data-i18n="t103">Frontend &amp; UI</h3>
             </div>
-            <div class="form-group">
-              <textarea name="message" placeholder="Tu mensaje" rows="5" required></textarea>
+            <p class="stack__note" data-i18n="t148">Interfaces que se entienden solas.</p>
+            <div class="chips">
+              <span class="chip">Vue 3</span>
+              <span class="chip">React 18</span>
+              <span class="chip">Vite</span>
+              <span class="chip">Tailwind CSS</span>
+              <span class="chip">Vuetify</span>
+              <span class="chip">JavaScript ES6+</span>
+              <span class="chip">HTML5 / CSS3</span>
+              <span class="chip">PWA</span>
+              <span class="chip">Figma / Canva</span>
+              <span class="chip">Photoshop</span>
             </div>
-            <button type="submit" class="btn-submit">
-              <i class="fas fa-paper-plane"></i> Enviar Mensaje
+          </article>
+
+          <article class="stack__card reveal">
+            <div class="stack__head">
+              <i class="fas fa-database"></i>
+              <h3 data-i18n="t104">Bases de datos</h3>
+            </div>
+            <p class="stack__note" data-i18n="t149">Modelado, consultas y migraciones versionadas.</p>
+            <div class="chips">
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">MariaDB</span>
+              <span class="chip">MongoDB</span>
+              <span class="chip">Eloquent ORM</span>
+              <span class="chip">Hibernate / JPA</span>
+              <span class="chip">Flyway</span>
+            </div>
+          </article>
+
+          <article class="stack__card reveal">
+            <div class="stack__head">
+              <i class="fas fa-vial-circle-check"></i>
+              <h3 data-i18n="t105">Testing &amp; calidad</h3>
+            </div>
+            <p class="stack__note" data-i18n="t150">Escribo los tests con el código, no después.</p>
+            <div class="chips">
+              <span class="chip">JUnit</span>
+              <span class="chip">Mockito</span>
+              <span class="chip">Testcontainers</span>
+              <span class="chip">PHPUnit</span>
+              <span class="chip">Vitest</span>
+              <span class="chip">Testing Library</span>
+              <span class="chip">Playwright</span>
+              <span class="chip" data-i18n="t219">Mutation testing</span>
+              <span class="chip">PHPStan</span>
+              <span class="chip" data-i18n="t207">QA Manual</span>
+            </div>
+          </article>
+
+          <article class="stack__card reveal">
+            <div class="stack__head">
+              <i class="fas fa-cubes-stacked"></i>
+              <h3 data-i18n="t106">DevOps &amp; despliegue</h3>
+            </div>
+            <p class="stack__note" data-i18n="t151">De la máquina local a producción.</p>
+            <div class="chips">
+              <span class="chip">Docker</span>
+              <span class="chip">Docker Compose</span>
+              <span class="chip">GitHub Actions</span>
+              <span class="chip">Render</span>
+              <span class="chip">Vercel</span>
+              <span class="chip">Netlify</span>
+              <span class="chip">Sentry</span>
+              <span class="chip">Postman</span>
+              <span class="chip">Git &amp; GitHub</span>
+            </div>
+          </article>
+
+          <article class="stack__card reveal">
+            <div class="stack__head">
+              <i class="fas fa-sitemap"></i>
+              <h3 data-i18n="t107">Arquitectura &amp; método</h3>
+            </div>
+            <p class="stack__note" data-i18n="t152">Cómo organizo el código y el trabajo.</p>
+            <div class="chips">
+              <span class="chip" data-i18n="t218">Arquitectura hexagonal</span>
+              <span class="chip">Clean Architecture</span>
+              <span class="chip">SOLID</span>
+              <span class="chip">Controller / Service / Repository</span>
+              <span class="chip">DTOs</span>
+              <span class="chip" data-i18n="t213">Scrum</span>
+              <span class="chip">Git Flow</span>
+              <span class="chip" data-i18n="t202">Code review</span>
+              <span class="chip">Jira</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FORMACIÓN ===== -->
+    <section class="section section--alt" id="formacion">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="section__tag" data-i18n="sec.edu.tag">Formación</p>
+          <h2 class="section__title" data-i18n="sec.edu.title">Estudios y certificaciones</h2>
+          <p class="section__sub" data-i18n="sec.edu.sub">Los diplomas se abren haciendo clic.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="tl-item reveal">
+            <span class="tl-item__dot"><i class="fas fa-user-graduate"></i></span>
+            <div class="card">
+              <div class="tl-head">
+                <h3 data-i18n="t108">Técnica Universitaria en Programación</h3>
+                <span class="tl-date" data-i18n="t117">Graduada · Julio 2026</span>
+              </div>
+              <p class="tl-org" data-i18n="t126">Universidad Tecnológica Nacional · FRSR</p>
+              <ul class="tl-list">
+                <li data-i18n="t013">Desarrollo de software, bases de datos, programación orientada a objetos y metodologías ágiles.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Java</span>
+                <span class="chip">Python</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">R</span>
+                <span class="chip" data-i18n="t201">Bases de datos</span>
+                <span class="chip">POO</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__dot"><i class="fas fa-language"></i></span>
+            <div class="card">
+              <div class="tl-head">
+                <h3 data-i18n="t109">Inglés · Nivel C1 (MCER)</h3>
+                <span class="tl-date" data-i18n="t118">2025</span>
+              </div>
+              <p class="tl-org" data-i18n="t127">English Discoveries · Edusoft (ETS) · Buenos Aires Ciudad Bilingüe</p>
+              <ul class="tl-list">
+                <li data-i18n="t014">Curso avanzado completo, con contenidos correspondientes al <strong>nivel C1</strong> del Marco Común Europeo de Referencia.</li>
+                <li data-i18n="t015">Lectura de documentación técnica, comunicación escrita y oral en entornos de trabajo en inglés.</li>
+              </ul>
+              <div class="certs">
+                <button class="cert-btn js-image" data-src="./assets/DiplomaIngles.jpg" data-alt="Certificado de inglés nivel C1"><i class="fas fa-award"></i> <span data-i18n="t231">Ver certificado</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__dot"><i class="fas fa-code"></i></span>
+            <div class="card">
+              <div class="tl-head">
+                <h3 data-i18n="t110">Desarrollo Full Stack Java</h3>
+                <span class="tl-date" data-i18n="t119">2023 — 2024</span>
+              </div>
+              <p class="tl-org" data-i18n="t128">Formación completa en tres tramos + certificación CAC</p>
+              <ul class="tl-list">
+                <li data-i18n="t016">Backend con Spring Framework y frontend con tecnologías modernas, de punta a punta.</li>
+              </ul>
+              <div class="certs">
+                <button class="cert-btn js-image" data-src="./assets/PrimerTramo.png" data-alt="Diploma primer tramo Full Stack Java"><i class="fas fa-award"></i> <span data-i18n="t232">Primer tramo</span></button>
+                <button class="cert-btn js-image" data-src="./assets/SegundoTramo.png" data-alt="Diploma segundo tramo Full Stack Java"><i class="fas fa-award"></i> <span data-i18n="t233">Segundo tramo</span></button>
+                <button class="cert-btn js-image" data-src="./assets/TercerTramo.png" data-alt="Diploma tercer tramo Full Stack Java"><i class="fas fa-award"></i> <span data-i18n="t234">Tercer tramo</span></button>
+                <button class="cert-btn js-image" data-src="./assets/cac.png" data-alt="Certificación CAC"><i class="fas fa-award"></i> <span data-i18n="t235">Certificación CAC</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__dot"><i class="fas fa-bug"></i></span>
+            <div class="card">
+              <div class="tl-head">
+                <h3 data-i18n="t111">Quality Assurance Manual</h3>
+                <span class="tl-date" data-i18n="t120">2023</span>
+              </div>
+              <p class="tl-org" data-i18n="t129">Testing manual, básico y avanzado</p>
+              <ul class="tl-list">
+                <li data-i18n="t017">Diseño y ejecución de casos de prueba, documentación de resultados y reporte de defectos.</li>
+              </ul>
+              <div class="certs">
+                <button class="cert-btn js-image" data-src="./assets/Testing.png" data-alt="Diploma de Testing"><i class="fas fa-award"></i> <span data-i18n="t236">Testing</span></button>
+                <button class="cert-btn js-image" data-src="./assets/TestingAvanzado.png" data-alt="Diploma de Testing avanzado"><i class="fas fa-award"></i> <span data-i18n="t237">Testing avanzado</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__dot"><i class="fas fa-pen-nib"></i></span>
+            <div class="card">
+              <div class="tl-head">
+                <h3 data-i18n="t112">Diseño Gráfico</h3>
+                <span class="tl-date" data-i18n="t121">2024</span>
+              </div>
+              <p class="tl-org" data-i18n="t130">Herramientas de diseño profesional</p>
+              <ul class="tl-list">
+                <li data-i18n="t018">Photoshop e Illustrator aplicados a interfaces y piezas visuales.</li>
+              </ul>
+              <div class="certs">
+                <button class="cert-btn js-image" data-src="./assets/DisenioGrafico.png" data-alt="Diploma de Diseño Gráfico"><i class="fas fa-award"></i> <span data-i18n="t238">Ver diploma</span></button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="section" id="contacto">
+      <div class="wrap">
+        <div class="section__head section__head--center">
+          <p class="section__tag" data-i18n="sec.contact.tag">Contacto</p>
+          <h2 class="section__title" data-i18n="sec.contact.title">Trabajemos juntos</h2>
+          <p class="section__sub" data-i18n="sec.contact.sub">
+            Busco mi primer puesto full time como desarrolladora backend o full stack.
+            Si tenés una búsqueda abierta, escribime.
+          </p>
+        </div>
+
+        <div class="contact">
+          <div class="contact__list">
+            <a class="contact__row" href="mailto:mariamercedesatim@gmail.com">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4 data-i18n="t153">Email</h4>
+                <p>mariamercedesatim@gmail.com</p>
+              </div>
+            </a>
+            <a class="contact__row" href="https://www.linkedin.com/in/mariamercedesatim-dev/" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin-in"></i>
+              <div>
+                <h4 data-i18n="t154">LinkedIn</h4>
+                <p>mariamercedesatim-dev</p>
+              </div>
+            </a>
+            <a class="contact__row" href="https://github.com/MerAtim" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+              <div>
+                <h4 data-i18n="t155">GitHub</h4>
+                <p>@MerAtim</p>
+              </div>
+            </a>
+            <div class="contact__row">
+              <i class="fas fa-location-dot"></i>
+              <div>
+                <h4 data-i18n="t156">Ubicación</h4>
+                <p>General San Martín, Buenos Aires · Remoto o híbrido</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="form" id="contactForm" action="https://formspree.io/f/xvgwaglo" method="POST">
+            <div class="form__grid">
+              <div class="field">
+                <label for="f-name" data-i18n="t239">Nombre</label>
+                <input type="text" id="f-name" data-i18n-ph="ph.name" name="name" placeholder="Tu nombre" required>
+              </div>
+              <div class="field">
+                <label for="f-email" data-i18n="t240">Email</label>
+                <input type="email" id="f-email" data-i18n-ph="ph.email" name="email" placeholder="tu@email.com" required>
+              </div>
+              <div class="field field--full">
+                <label for="f-subject" data-i18n="t241">Asunto</label>
+                <input type="text" id="f-subject" data-i18n-ph="ph.subject" name="subject" placeholder="Sobre qué querés hablar" required>
+              </div>
+              <div class="field field--full">
+                <label for="f-message" data-i18n="t242">Mensaje</label>
+                <textarea id="f-message" data-i18n-ph="ph.message" name="message" rows="6" placeholder="Contame en qué estás pensando..." required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn--primary">
+              <i class="fas fa-paper-plane"></i> <span data-i18n="t243">Enviar mensaje</span>
             </button>
-            
-            <!-- Mensajes de estado -->
-            <div id="form-status" class="form-status" style="display: none;">
-              <div id="success-message" class="success-message" style="display: none;">
-                <i class="fas fa-check-circle"></i>
-                ¡Mensaje enviado correctamente! Te contactaré pronto.
-              </div>
-              <div id="error-message" class="error-message" style="display: none;">
-                <i class="fas fa-exclamation-triangle"></i>
-                Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.
-              </div>
-            </div>
+
+            <div class="form__status" id="formStatus" role="status" hidden></div>
+            <p class="form__hint" data-i18n="t244">Suelo responder dentro de las 24 horas.</p>
           </form>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Modales para diplomas -->
-  <div class="modal" data-id="./assets/Testing.png">
-    <div class="modal-content">
-      <img src="./assets/Testing.png" alt="Diploma Testing">
-      <button class="close-button">Cerrar</button>
+  <!-- ===== DETALLES DE PROYECTO (plantillas ocultas) ===== -->
+  <template id="pd-elearning">
+    <div class="pd">
+      <div class="pd__head">
+        <span class="pd__kicker" data-i18n="t019">Pasantía · plataforma en producción</span>
+        <h3 data-i18n="t020">Plataforma de e-learning</h3>
+        <p data-i18n="t024">
+          Plataforma web para una academia de programación, con arquitectura de API REST
+          desacoplada del cliente. Los alumnos cursan contenidos, resuelven ejercicios que se
+          corrigen automáticamente contra tests, completan quizzes interactivos y avanzan en un
+          sistema de puntos, rachas y logros.
+        </p>
+      </div>
+
+      <h4 data-i18n="t021">Qué incluye</h4>
+      <ul>
+        <li data-i18n="t025"><strong>Del lado del alumno:</strong> catálogo de cursos, reproductor de clases, editor de código embebido con autoevaluación contra una batería de tests, quizzes interactivos, gamificación y compra de cursos y membresías.</li>
+        <li data-i18n="t026"><strong>Del lado del equipo:</strong> panel de administración de cursos, lecciones, ejercicios, alumnos, pagos y accesos, con métricas y control de cobranzas.</li>
+        <li data-i18n="t027"><strong>Automatizaciones:</strong> motor de emails de reenganche que segmenta alumnos según su actividad, pagos por webhooks y generación de contenido asistida por IA.</li>
+      </ul>
+
+      <h4 data-i18n="t022">Mi trabajo en el proyecto</h4>
+      <ul>
+        <li data-i18n="t028">Desarrollo sostenido en <strong>Vue 3 con Composition API</strong> sobre un design system de componentes propios, y en <strong>Laravel</strong> (modelos, servicios, repositorios, controladores y rutas).</li>
+        <li data-i18n="t029"><strong>Tests unitarios y de integración</strong> de las funcionalidades que desarrollé, incluyendo casos límite y de regresión, con PHPUnit contra PostgreSQL real y Vitest en el frontend.</li>
+        <li data-i18n="t030">Mutation testing acotado a los archivos modificados, para verificar que los tests detectan fallas y no solo ejecutan líneas.</li>
+        <li data-i18n="t031">Metodología de equipo: una rama por ticket, pull requests, revisión de código y commits convencionales. <strong>104 commits</strong> en el repositorio.</li>
+      </ul>
+
+      <h4 data-i18n="t023">Stack del proyecto</h4>
+      <ul>
+        <li data-i18n="t032"><strong>Backend:</strong> PHP 8.2, Laravel, Eloquent ORM, PostgreSQL, Sanctum, Guzzle, L5-Swagger.</li>
+        <li data-i18n="t033"><strong>Frontend:</strong> Vue 3, Vite, Vue Router, Tailwind CSS, Axios, VeeValidate + Yup, Monaco Editor, TipTap, Chart.js, H5P.</li>
+        <li data-i18n="t034"><strong>Testing:</strong> PHPUnit, Vitest, Vue Test Utils, Playwright, Infection y Stryker (mutation testing), cobertura con PCOV y V8.</li>
+        <li data-i18n="t035"><strong>Infra:</strong> Docker, Render, almacenamiento externo, scheduler HTTP, GitHub para tickets y pull requests.</li>
+        <li data-i18n="t036"><strong>Integraciones:</strong> pasarela de pagos con webhooks, Discord, proveedores de email con cadena de respaldo y API de IA para pistas pedagógicas.</li>
+      </ul>
+
+      <div class="pd__note" data-i18n="t037">
+        <strong>Sobre la confidencialidad:</strong> es un proyecto de cliente, así que el
+        repositorio es privado y la descripción está anonimizada, sin nombre de marca. Puedo
+        contar en detalle las decisiones técnicas y mi trabajo en una entrevista.
+      </div>
     </div>
-  </div>
-  
-  <div class="modal" data-id="./assets/TestingAvanzado.png">
-    <div class="modal-content">
-      <img src="./assets/TestingAvanzado.png" alt="Diploma Testing Avanzado">
-      <button class="close-button">Cerrar</button>
+  </template>
+
+  <template id="pd-capymeal">
+    <div class="pd">
+      <div class="pd__head">
+        <span class="pd__kicker" data-i18n="t038">Proyecto personal · full stack</span>
+        <h3 data-i18n="t039">CapyMeal</h3>
+        <p data-i18n="t043">
+          Diario personal de comidas con Capi, un carpincho, como mascota. A propósito
+          <strong>no</strong> es una app de fitness ni de conteo de calorías: no impone objetivos
+          nutricionales, solo ayuda a registrar y recordar qué comiste. Es gratuita y sin
+          monetización.
+        </p>
+      </div>
+
+      <h4 data-i18n="t040">Características</h4>
+      <ul>
+        <li data-i18n="t044">Autenticación con email y contraseña, más <strong>login social con Google y Microsoft</strong> (Azure/Entra ID) vía OAuth2.</li>
+        <li data-i18n="t045">Sesión por <strong>cookie httpOnly cross-origin</strong>, con frontend y backend en dominios distintos.</li>
+        <li data-i18n="t046">Exportación del diario a PDF.</li>
+        <li data-i18n="t047"><strong>PWA instalable</strong> que funciona offline para leer lo ya guardado, y APK de Android instalable directo generado con Bubblewrap, sin pasar por Play Store.</li>
+        <li data-i18n="t048">Autorización real con FormRequests y Policies (protección contra IDOR), rate limiting en endpoints sensibles y headers CSP.</li>
+      </ul>
+
+      <h4 data-i18n="t041">Stack</h4>
+      <ul>
+        <li data-i18n="t049"><strong>Frontend:</strong> Vue 3 Composition API, Vite, Vuetify (Material Design 3), Vue Router con guards, Vitest, ESLint y Prettier.</li>
+        <li data-i18n="t050"><strong>Backend:</strong> Laravel 12 sobre PHP 8.4, Sanctum, Socialite, DomPDF, PHPUnit, Larastan/PHPStan nivel 5 y Pint.</li>
+        <li data-i18n="t051"><strong>Datos e infraestructura:</strong> PostgreSQL serverless en Neon con backup diario, Docker y Docker Compose en local, Render con FrankenPHP para el backend y Vercel para el frontend.</li>
+        <li data-i18n="t052"><strong>CI/CD:</strong> GitHub Actions con tests y lint obligatorios en cada PR, Dependabot y scheduler por cron.</li>
+        <li data-i18n="t053"><strong>Observabilidad:</strong> Sentry en frontend y backend, más UptimeRobot.</li>
+      </ul>
+
+      <h4 data-i18n="t042">Lo más interesante que resolví</h4>
+      <ul>
+        <li data-i18n="t054">Migré la autenticación de un token en <strong>localStorage</strong> a una cookie <strong>httpOnly</strong>, a partir de un hallazgo de seguridad real de un compañero de equipo.</li>
+        <li data-i18n="t055">Descubrí que <strong>Sanctum sobreescribe SameSite en runtime</strong> sin avisar, lo que rompía la cookie cross-site.</li>
+        <li data-i18n="t056">Encontré que el patrón estándar de cookie CSRF de Sanctum es incompatible cuando frontend y backend no comparten dominio, porque <code>document.cookie</code> no puede leer una cookie de otro origen. Apareció recién probando con un navegador real, no con <code>curl</code>.</li>
+        <li data-i18n="t057">Auditorías internas de seguridad y arquitectura (OWASP, SOLID, Clean Architecture) con remediación completa.</li>
+      </ul>
+
+      <div class="pd__actions">
+        <a class="btn btn--primary btn--sm" href="https://github.com/CapyMeal/CapyMeal" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> Ver repositorio
+        </a>
+      </div>
     </div>
-  </div>
-  
-  <div class="modal" data-id="./assets/PrimerTramo.png">
-    <div class="modal-content">
-      <img src="./assets/PrimerTramo.png" alt="Diploma Primer Tramo">
-      <button class="close-button">Cerrar</button>
+  </template>
+
+  <template id="pd-medconnect">
+    <div class="pd">
+      <div class="pd__head">
+        <span class="pd__kicker" data-i18n="t058">Full stack · Java + React</span>
+        <h3 data-i18n="t059">MedConnect</h3>
+        <p data-i18n="t063">
+          Plataforma web para gestión de turnos e historias clínicas en clínicas médicas, con
+          roles de Administrador, Médico y Paciente, y permisos distintos en cada endpoint.
+        </p>
+      </div>
+
+      <h4 data-i18n="t060">Funcionalidades</h4>
+      <ul>
+        <li data-i18n="t064"><strong>Turnos:</strong> alta (solo Administrador), listado paginado y filtrable, y cambio de estado con reglas por rol.</li>
+        <li data-i18n="t065"><strong>Médicos y pacientes:</strong> alta, edición y baja, con directorios acotados por rol — un Médico solo ve a sus propios pacientes.</li>
+        <li data-i18n="t066"><strong>Historia clínica:</strong> registros cargados por el Médico y exportación a texto por el Administrador. El contenido se guarda <strong>cifrado con AES-256-GCM</strong>, no en texto plano.</li>
+        <li data-i18n="t067"><strong>Cuentas de acceso</strong> separadas de las fichas, vinculadas por email, con la unicidad forzada a nivel de base de datos.</li>
+        <li data-i18n="t068"><strong>Health checks</strong> expuestos con Spring Boot Actuator para chequeos de liveness y readiness de un orquestador.</li>
+      </ul>
+
+      <h4 data-i18n="t061">Stack</h4>
+      <ul>
+        <li data-i18n="t069"><strong>Backend:</strong> Java 17, Spring Boot 3.2, Spring Security con JWT en cookie httpOnly, Spring Data JPA, PostgreSQL, Flyway, Springdoc OpenAPI, JJWT y JaCoCo.</li>
+        <li data-i18n="t070"><strong>Frontend:</strong> React 18, Vite y Tailwind CSS.</li>
+        <li data-i18n="t071"><strong>Testing:</strong> JUnit, Mockito y Testcontainers en backend (integración contra PostgreSQL real); Vitest y React Testing Library en frontend.</li>
+        <li data-i18n="t072"><strong>Infra:</strong> Docker con multi-stage builds e imágenes non-root, Docker Compose orquestando backend, frontend y base de datos con healthchecks reales entre servicios, y GitHub Actions corriendo build y tests en cada push y PR.</li>
+      </ul>
+
+      <h4 data-i18n="t062">Decisiones de arquitectura</h4>
+      <ul>
+        <li data-i18n="t073"><strong>Arquitectura hexagonal:</strong> dominio, casos de uso, infraestructura y adaptadores REST separados, siguiendo principios SOLID.</li>
+        <li data-i18n="t074">Migraciones de base de datos versionadas con Flyway.</li>
+        <li data-i18n="t075">Git Flow simplificado y commits atómicos y convencionales.</li>
+        <li data-i18n="t076">Variables sensibles fuera del código, sin secretos hardcodeados.</li>
+      </ul>
+
+      <div class="pd__actions">
+        <a class="btn btn--primary btn--sm" href="https://github.com/MerAtim/MediConnect" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> Ver repositorio
+        </a>
+      </div>
     </div>
-  </div>
-  
-  <div class="modal" data-id="./assets/SegundoTramo.png">
-    <div class="modal-content">
-      <img src="./assets/SegundoTramo.png" alt="Diploma Segundo Tramo">
-      <button class="close-button">Cerrar</button>
+  </template>
+
+  <template id="pd-ferreteria">
+    <div class="pd">
+      <div class="pd__head">
+        <span class="pd__kicker" data-i18n="t077">Coordinación · QA · Deploy</span>
+        <h3 data-i18n="t078">Ferretería San Francisco</h3>
+        <p data-i18n="t080">
+          Sitio web institucional del comercio, publicado y funcionando en su propio dominio.
+          Mi rol acá no fue principalmente escribir código, sino <strong>hacer que el proyecto
+          llegara a producción</strong>.
+        </p>
+      </div>
+
+      <h4 data-i18n="t079">Mi rol</h4>
+      <ul>
+        <li data-i18n="t081"><strong>Scrum Master:</strong> organización de las reuniones, reparto de tareas del equipo y seguimiento de las entregas.</li>
+        <li data-i18n="t082"><strong>Mentoría:</strong> acompañé a desarrolladores junior en su transición a un entorno de trabajo profesional.</li>
+        <li data-i18n="t083"><strong>Testing manual</strong> y control de calidad del sitio antes de publicarlo.</li>
+        <li data-i18n="t084"><strong>Puesta en producción:</strong> compra del dominio, vinculación y publicación del sitio.</li>
+      </ul>
+
+      <div class="pd__note" data-i18n="t085">
+        Lo incluyo porque muestra algo que no se ve en el código: coordinar un equipo,
+        sostener una entrega y ocuparme de los últimos metros que van del repositorio al
+        sitio funcionando.
+      </div>
+
+      <div class="pd__actions">
+        <a class="btn btn--primary btn--sm" href="https://www.ferreteriasanfrancisco.com.ar" target="_blank" rel="noopener">
+          <i class="fas fa-arrow-up-right-from-square"></i> <span data-i18n="t230">Ver sitio</span>
+        </a>
+        <a class="btn btn--ghost btn--sm" href="https://github.com/Ferreteria-San-Francisco/ferreteria-san-francisco-web" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> <span data-i18n="t228">Repositorio</span>
+        </a>
+      </div>
     </div>
-  </div>
-  
-  <div class="modal" data-id="./assets/TercerTramo.png">
-    <div class="modal-content">
-      <img src="./assets/TercerTramo.png" alt="Diploma Tercer Tramo">
-      <button class="close-button">Cerrar</button>
-    </div>
-  </div>
-  
-  <div class="modal" data-id="./assets/cac.png">
-    <div class="modal-content">
-      <img src="./assets/cac.png" alt="Certificación CAC">
-      <button class="close-button">Cerrar</button>
-    </div>
-  </div>
-  
-  <div class="modal" data-id="./assets/DisenioGrafico.png">
-    <div class="modal-content">
-      <img src="./assets/DisenioGrafico.png" alt="Diploma Diseño Gráfico">
-      <button class="close-button">Cerrar</button>
+  </template>
+
+  <!-- ===== MODALES ===== -->
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-label="Detalle del proyecto">
+    <div class="modal__panel">
+      <button class="modal__close" data-close aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+      <div class="modal__body" id="projectModalBody"></div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-text">
-        <p>&copy; 2025 Maria Mercedes Atim. Todos los derechos reservados.</p>
-        <p>Diseñado y desarrollado con <i class="fas fa-heart"></i> y mucho <i class="fas fa-coffee"></i></p>
+  <div class="modal modal--image" id="imageModal" role="dialog" aria-modal="true" aria-label="Diploma">
+    <div class="modal__panel">
+      <button class="modal__close" data-close aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+      <img id="imageModalImg" src="" alt="">
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <p>&copy; <span id="year">2026</span> <span data-i18n="t245">Maria Mercedes Atim · Desarrolladora Full Stack</span></p>
+        <p data-i18n="t246">Hecho a mano con HTML, CSS y JavaScript <i class="fas fa-heart"></i></p>
       </div>
-      <div class="footer-social">
-        <a href="https://www.linkedin.com/in/mariamercedesatim-dev/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/MerAtim" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:mariamercedesatim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      </div>
+      <ul class="socials">
+        <li><a href="https://github.com/MerAtim" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/mariamercedesatim-dev/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="mailto:mariamercedesatim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+      </ul>
     </div>
   </footer>
 
+  <a class="to-top" id="toTop" href="#inicio" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="js/i18n.js"></script>
   <script src="js/scripts.js"></script>
 </body>
 </html>

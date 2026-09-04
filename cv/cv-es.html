@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Maria Mercedes Atim - CV</title>
+<style>
+  /* CV optimizado para ATS: una sola columna, sin tablas, sin imagenes,
+     sin cajas de texto, encabezados estandar y texto seleccionable. */
+  @page { size: A4; margin: 13mm 14mm; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9.6pt;
+    line-height: 1.38;
+    color: #000;
+    background: #fff;
+  }
+
+  h1 {
+    font-size: 17pt;
+    letter-spacing: 0.4pt;
+    margin-bottom: 2pt;
+  }
+
+  .headline {
+    font-size: 10.2pt;
+    font-weight: bold;
+    margin-bottom: 4pt;
+  }
+
+  .contact { font-size: 9pt; margin-bottom: 2pt; }
+  .contact a { color: #000; text-decoration: none; }
+
+  h2 {
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.6pt;
+    border-bottom: 1pt solid #000;
+    padding-bottom: 2pt;
+    margin: 11pt 0 6pt;
+  }
+
+  h3 { font-size: 9.9pt; margin-bottom: 1pt; }
+
+  .meta {
+    font-size: 8.9pt;
+    font-style: italic;
+    margin-bottom: 3pt;
+  }
+
+  .role { margin-bottom: 8pt; }
+  .role:last-child { margin-bottom: 0; }
+
+  ul { margin: 0 0 0 14pt; }
+  li { margin-bottom: 2pt; }
+
+  p { margin-bottom: 4pt; }
+
+  .skills p { margin-bottom: 2.5pt; }
+  .skills strong { display: inline; }
+
+  .tech { font-size: 8.9pt; margin-bottom: 2pt; }
+
+  /* Evita que un bloque se corte entre paginas */
+  .role, .skills p { page-break-inside: avoid; }
+  h2 { page-break-after: avoid; }
+</style>
+</head>
+<body>
+
+<h1>MARIA MERCEDES ATIM</h1>
+<p class="headline">Desarrolladora Full Stack &mdash; Java &middot; Spring Boot &middot; PHP &middot; Laravel &middot; Vue &middot; React</p>
+<p class="contact">General San Martín, Buenos Aires, Argentina &middot; mariamercedesatim@gmail.com &middot; +54 9 11 3150-9571</p>
+<p class="contact">linkedin.com/in/mariamercedesatim-dev &middot; github.com/MerAtim &middot; meratim.github.io/Portafolio2025</p>
+
+<h2>Perfil profesional</h2>
+<p>
+Desarrolladora full stack con experiencia en equipos de trabajo reales, adquirida en pasantías de
+desarrollo de software, testing y coordinación ágil. Trabajo backend con Java y Spring Boot, y con
+PHP y Laravel sobre una plataforma en producción; frontend con Vue 3 y React. Desarrollo con tests
+unitarios y de integración, arquitectura en capas y despliegue continuo. Técnica Universitaria en
+Programación (UTN). Inglés C1. Orientada a posiciones de backend y desarrollo full stack.
+</p>
+
+<h2>Habilidades técnicas</h2>
+<div class="skills">
+  <p><strong>Lenguajes:</strong> Java, PHP, JavaScript, Python, SQL, HTML5, CSS3</p>
+  <p><strong>Backend:</strong> Spring Boot, Spring Security, Spring Data JPA, Laravel, Eloquent ORM, REST APIs, JWT, Laravel Sanctum, Maven, Spring Boot Actuator</p>
+  <p><strong>Frontend:</strong> Vue 3 (Composition API), React 18, Vite, Tailwind CSS, Vuetify, Vue Router, Axios</p>
+  <p><strong>Bases de datos:</strong> PostgreSQL, MySQL, MariaDB, MongoDB, Hibernate/JPA, Flyway, migraciones versionadas</p>
+  <p><strong>Testing y calidad:</strong> JUnit, Mockito, Testcontainers, PHPUnit, Vitest, React Testing Library, Playwright, mutation testing (Infection, Stryker), PHPStan, JaCoCo, testing manual y QA</p>
+  <p><strong>DevOps y despliegue:</strong> Docker, Docker Compose, GitHub Actions (CI/CD), Render, Vercel, Git, GitHub, Postman, Sentry</p>
+  <p><strong>Arquitectura y metodologías:</strong> Arquitectura hexagonal, Clean Architecture, SOLID, patrón Controller-Service-Repository, DTOs, Scrum, Git Flow, code review, Jira</p>
+</div>
+
+<h2>Experiencia profesional</h2>
+
+<div class="role">
+  <h3>Desarrolladora Full Stack (PHP / Vue) &mdash; Academia de programación online</h3>
+  <p class="meta">Pasantía &middot; Agosto 2026 &ndash; Actualidad</p>
+  <ul>
+    <li>Desarrollo sobre una plataforma de e-learning en producción con Laravel y Vue 3, en arquitectura Controller / Service / Repository.</li>
+    <li>Detección y corrección de un bug de zona horaria en un componente compartido que afectaba a <strong>16 pantallas</strong> del panel de administración, con tests que fijan la zona horaria de forma explícita.</li>
+    <li>Identificación de un riesgo de pérdida de datos en producción: dos procesos de carga eliminaban lecciones con borrado en cascada sobre el progreso de los alumnos. Reportado con la cadena completa de causa y efecto antes de su ejecución.</li>
+    <li>Revisión de los <strong>14 tickets</strong> de un desarrollo de dos semanas contra el código real: se detectaron tres fragmentos no funcionales, un servicio ya existente que se pedía duplicar y un ticket con alcance cuatro veces mayor al descrito.</li>
+    <li>Tests unitarios y de integración con PHPUnit sobre PostgreSQL y Vitest en frontend; mutation testing acotado a los archivos modificados.</li>
+    <li>Trabajo por tickets con una rama por tarea, pull requests, revisión de código y commits convencionales.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <h3>Scrum Master, QA y coordinación &mdash; Ferretería San Francisco</h3>
+  <p class="meta">Sitio web corporativo &middot; Septiembre 2025 &ndash; Julio 2026</p>
+  <ul>
+    <li>Coordinación del equipo como Scrum Master: organización de reuniones, asignación de tareas y seguimiento de entregas.</li>
+    <li>Acompañamiento a desarrolladores junior en su primera experiencia en un entorno profesional.</li>
+    <li>Testing manual y control de calidad previo a la publicación.</li>
+    <li>Gestión de la compra y vinculación del dominio hasta la puesta en producción del sitio (ferreteriasanfrancisco.com.ar).</li>
+  </ul>
+</div>
+
+<div class="role">
+  <h3>Desarrolladora, testing y planificación &mdash; Plataforma de gestión de mantenimiento</h3>
+  <p class="meta">Sector oil &amp; gas &middot; Noviembre 2025 &ndash; Febrero 2026</p>
+  <ul>
+    <li>Participación en el desarrollo de una plataforma de gestión de tareas para paradas de planta.</li>
+    <li>Colaboración en desarrollo, testing, planificación y entrega dentro de los plazos acordados.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <h3>Desarrolladora Full Stack &mdash; Universidad de La Punta (San Luis), grupo CTRL-Z</h3>
+  <p class="meta">Noviembre 2022 &ndash; Septiembre 2024</p>
+  <ul>
+    <li>Desarrollo de aplicaciones para la Universidad de La Punta.</li>
+    <li>Diseño de soluciones informáticas para consultorios médicos.</li>
+  </ul>
+</div>
+
+<h2>Proyectos destacados</h2>
+
+<div class="role">
+  <h3>MedConnect &mdash; Plataforma de turnos e historias clínicas</h3>
+  <p class="tech">Java 17, Spring Boot 3.2, Spring Security, PostgreSQL, Flyway, React 18, Docker &middot; github.com/MerAtim/MediConnect</p>
+  <ul>
+    <li>Arquitectura hexagonal, con dominio, casos de uso, infraestructura y adaptadores REST separados.</li>
+    <li>Autenticación JWT en cookie httpOnly y autorización por rol (Administrador, Médico, Paciente) en cada endpoint.</li>
+    <li>Cifrado AES-256-GCM de las historias clínicas en base de datos y migraciones versionadas con Flyway.</li>
+    <li>Tests de integración con Testcontainers contra PostgreSQL real y CI con GitHub Actions en cada push y pull request.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <h3>CapyMeal &mdash; Diario personal de comidas (PWA)</h3>
+  <p class="tech">Vue 3, Vuetify, Laravel 12, PHP 8.4, PostgreSQL, Docker, GitHub Actions, Sentry &middot; github.com/CapyMeal/CapyMeal</p>
+  <ul>
+    <li>Autenticación por cookie httpOnly cross-origin y login social OAuth2 con Google y Microsoft.</li>
+    <li>Migración del token de sesión desde localStorage a cookie httpOnly a partir de un hallazgo de seguridad, resolviendo incompatibilidades reales de Sanctum en una arquitectura cross-origin.</li>
+    <li>PWA instalable con funcionamiento offline y APK de Android generado con Bubblewrap.</li>
+    <li>CI/CD con tests y lint obligatorios por pull request; monitoreo de errores en producción con Sentry.</li>
+  </ul>
+</div>
+
+<h2>Formación</h2>
+
+<div class="role">
+  <h3>Técnica Universitaria en Programación</h3>
+  <p class="meta">Universidad Tecnológica Nacional (UTN), Facultad Regional San Rafael &middot; Graduada en julio de 2026 &middot; Título en trámite</p>
+</div>
+
+<div class="role">
+  <h3>Desarrollo Full Stack Java (tres tramos) y certificación Codo a Codo</h3>
+  <p class="meta">2023 &ndash; 2024</p>
+</div>
+
+<div class="role">
+  <h3>Quality Assurance Manual, niveles básico y avanzado</h3>
+  <p class="meta">2023</p>
+</div>
+
+<div class="role">
+  <h3>Diseño Gráfico (Adobe Photoshop, Adobe Illustrator)</h3>
+  <p class="meta">2024</p>
+</div>
+
+<h2>Idiomas</h2>
+<p><strong>Español:</strong> nativo.</p>
+<p><strong>Inglés:</strong> C1 (Marco Común Europeo de Referencia). English Discoveries Advanced, Edusoft &mdash; subsidiaria de ETS, programa Buenos Aires Ciudad Bilingüe, 2025.</p>
+
+<h2>Otra experiencia</h2>
+<div class="role">
+  <h3>Atención al cliente &mdash; Ferretería San Francisco</h3>
+  <p class="meta">Marzo 2015 &ndash; Actualidad</p>
+  <ul>
+    <li>Atención al cliente, gestión de inventario, coordinación con proveedores, facturación y soporte administrativo.</li>
+  </ul>
+</div>
+
+</body>
+</html>
