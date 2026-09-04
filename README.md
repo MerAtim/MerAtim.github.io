@@ -3,7 +3,7 @@
 Portafolio personal de **Maria Mercedes Atim**, desarrolladora full stack.
 Sitio estático, sin frameworks ni proceso de build: se abre `index.html` y funciona.
 
-🔗 **[Ver el sitio](https://meratim.github.io/Portafolio2025/)** · [LinkedIn](https://www.linkedin.com/in/mariamercedesatim-dev/) · [GitHub](https://github.com/MerAtim)
+🔗 **[Ver el sitio](https://meratim.github.io)** · [LinkedIn](https://www.linkedin.com/in/mariamercedesatim-dev/) · [GitHub](https://github.com/MerAtim)
 
 ---
 
@@ -40,7 +40,7 @@ Sitio estático, sin frameworks ni proceso de build: se abre `index.html` y func
 ## Estructura
 
 ```
-Portafolio2025/
+MerAtim.github.io/
 ├── index.html          Todo el contenido del sitio
 ├── css/style.css       Estilos y sistema de diseño
 ├── js/scripts.js       Interacciones
