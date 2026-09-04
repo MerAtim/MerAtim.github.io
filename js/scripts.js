@@ -403,6 +403,40 @@
     });
   }
 
+
+  /* ---------- Elegir el idioma del CV al descargarlo ---------- */
+  function initCV() {
+    const btn = $('#cvBtn');
+    const menu = $('#cvMenu');
+    if (!btn || !menu) return;
+
+    function abrir(si) {
+      menu.hidden = !si;
+      btn.setAttribute('aria-expanded', String(si));
+      const caret = $('.cv-pick__caret', btn);
+      if (caret) caret.style.transform = si ? 'rotate(180deg)' : '';
+    }
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      abrir(menu.hidden);
+    });
+
+    // Al elegir un idioma, cerramos el menú
+    $$('a', menu).forEach((a) => a.addEventListener('click', () => abrir(false)));
+
+    document.addEventListener('click', (e) => {
+      if (!menu.hidden && !e.target.closest('.cv-pick')) abrir(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.hidden) {
+        abrir(false);
+        btn.focus();
+      }
+    });
+  }
+
   /* ---------- Año del footer ---------- */
   function initYear() {
     const el = $('#year');
@@ -419,6 +453,7 @@
     initModals();
     initCounters();
     initForm();
+    initCV();
     initYear();
   });
 })();

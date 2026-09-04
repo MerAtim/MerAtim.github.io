@@ -31,7 +31,6 @@ window.I18N = { en: {
   "hero.cta.cv": "Download CV",
   "hero.cta.contact": "Get in touch",
   "hero.photo": "Maria Mercedes Atim",
-  "cv.file": "./assets/CV-Maria-Mercedes-Atim-EN.pdf",
 
   /* --- Métricas --- */
   "stat.projects": "Projects built",

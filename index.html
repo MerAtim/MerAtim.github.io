@@ -112,9 +112,20 @@
             <a class="btn btn--primary" href="#proyectos">
               <i class="fas fa-folder-open"></i> <span data-i18n="hero.cta.projects">Ver proyectos</span>
             </a>
-            <a class="btn btn--ghost" href="./assets/CV-Maria-Mercedes-Atim-ES.pdf" download data-i18n-href="cv.file">
-              <i class="fas fa-file-arrow-down"></i> <span data-i18n="hero.cta.cv">Descargar CV</span>
-            </a>
+            <div class="cv-pick">
+              <button type="button" class="btn btn--ghost" id="cvBtn" aria-haspopup="true" aria-expanded="false" aria-controls="cvMenu">
+                <i class="fas fa-file-arrow-down"></i> <span data-i18n="hero.cta.cv">Descargar CV</span>
+                <i class="fas fa-chevron-down cv-pick__caret" aria-hidden="true"></i>
+              </button>
+              <div class="cv-pick__menu" id="cvMenu" role="menu" hidden>
+                <a role="menuitem" href="./assets/CV-Maria-Mercedes-Atim-ES.pdf" download>
+                  <i class="fas fa-file-pdf"></i> Español
+                </a>
+                <a role="menuitem" href="./assets/CV-Maria-Mercedes-Atim-EN.pdf" download>
+                  <i class="fas fa-file-pdf"></i> English
+                </a>
+              </div>
+            </div>
             <a class="btn btn--ghost" href="#contacto">
               <i class="fas fa-paper-plane"></i> <span data-i18n="hero.cta.contact">Contactame</span>
             </a>
