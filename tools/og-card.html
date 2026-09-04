@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tarjeta de vista previa</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  /* Lienzo de 1200x630, la proporción que piden LinkedIn, WhatsApp y X. */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    position: relative;
+    background: #080D1A;
+    font-family: 'Inter', sans-serif;
+    color: #E9EDF7;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+  }
+  .orb--1 { width: 560px; height: 560px; top: -180px; right: -120px;
+            background: radial-gradient(circle, rgba(139,92,246,.55), transparent 68%); }
+  .orb--2 { width: 460px; height: 460px; bottom: -200px; left: -120px;
+            background: radial-gradient(circle, rgba(236,72,153,.45), transparent 68%); }
+
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(148,163,197,.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148,163,197,.14) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 70% at 40% 50%, #000 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 40% 50%, #000 20%, transparent 80%);
+  }
+
+  .wrap {
+    position: relative; z-index: 2;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    align-items: center;
+    gap: 56px;
+    padding: 64px 68px;
+  }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px 8px 14px;
+    border: 1px solid rgba(148,163,197,.22);
+    border-radius: 999px;
+    background: #111A2E;
+    font-size: 19px; color: #B4BFD6;
+    margin-bottom: 26px;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: #34D399;
+         box-shadow: 0 0 0 5px rgba(52,211,153,.18); }
+
+  h1 { font-family: 'Poppins', sans-serif; font-size: 64px; font-weight: 800;
+       line-height: 1.05; letter-spacing: -.025em; margin-bottom: 14px; }
+
+  .role { font-family: 'JetBrains Mono', monospace; font-size: 25px;
+          color: #38BDF8; margin-bottom: 30px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; max-width: 660px; }
+  .chip { padding: 8px 16px; border-radius: 999px; font-size: 18px; font-weight: 500;
+          border: 1px solid rgba(167,139,250,.28); background: rgba(167,139,250,.10);
+          color: #C9BCFB; }
+
+  .photo {
+    width: 380px; height: 380px;
+    border-radius: 30px; overflow: hidden;
+    border: 1px solid rgba(148,163,197,.28);
+    box-shadow: 0 30px 70px rgba(0,0,0,.5);
+    position: relative;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo::after { content:""; position:absolute; inset:0;
+                  background: linear-gradient(150deg, rgba(139,92,246,.20), transparent 45%); }
+
+  .url {
+    position: absolute; left: 68px; bottom: 46px; z-index: 3;
+    font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 500;
+    background: linear-gradient(120deg,#8B5CF6,#EC4899);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
+</head>
+<body>
+  <div class="orb orb--1"></div>
+  <div class="orb orb--2"></div>
+  <div class="grid"></div>
+
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Disponible para trabajar</div>
+      <h1>Maria Mercedes Atim</h1>
+      <div class="role">Full Stack Developer</div>
+      <div class="chips">
+        <span class="chip">Java 17</span>
+        <span class="chip">Spring Boot</span>
+        <span class="chip">Laravel</span>
+        <span class="chip">Vue 3</span>
+        <span class="chip">React</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Testing &amp; CI/CD</span>
+      </div>
+    </div>
+    <div class="photo"><img src="../assets/Mer.jpeg" alt=""></div>
+  </div>
+
+  <div class="url">meratim.github.io</div>
+</body>
+</html>
