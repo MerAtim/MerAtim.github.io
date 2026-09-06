@@ -66,6 +66,16 @@ python -m http.server 8000
 - **Agregar una tecnología**: sumar un `<span class="chip">` en la tarjeta correspondiente de la sección Stack.
 - **Traducir un texto nuevo**: ponerle `data-i18n="clave"` al elemento en `index.html` y agregar esa misma clave con su texto en inglés en `js/i18n.js`.
 
+## Regenerar la tarjeta de vista previa
+
+La imagen que muestran LinkedIn y WhatsApp al compartir el enlace se arma desde
+`tools/og-card.html`. Se abre en el navegador y se captura a 1200x630 sobre
+`assets/og-image.png`.
+
+Si la cambiás, **renombrá el archivo**: LinkedIn cachea las imágenes por URL y no
+las refresca aunque uses el Post Inspector. Cambiar el nombre es lo único que lo
+fuerza a bajar la nueva.
+
 ## Regenerar el CV
 
 El CV se escribe en HTML (`cv/cv-es.html` y `cv/cv-en.html`) y se exporta a PDF. Está pensado
