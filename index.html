@@ -53,27 +53,28 @@
 <body>
   <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
 
-  <!-- ===== NAV ===== -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a class="brand" href="#inicio">
-        <span class="brand__mark">MMA</span>
-        <span>
-          <span class="brand__name">Maria Mercedes Atim</span>
-          <span class="brand__role">full stack developer</span>
-        </span>
-      </a>
+  <!-- ===== ÍNDICE LATERAL =====
+       Hace de navegación y de índice del documento a la vez.
+       La numeración sale de un contador CSS, igual que la de las secciones. -->
+  <header class="rail" id="nav">
+    <a class="brand" href="#inicio">
+      <span class="brand__mark">MMA</span>
+      <span>
+        <span class="brand__name">Maria Mercedes Atim</span>
+        <span class="brand__role">full stack developer</span>
+      </span>
+    </a>
 
-      <nav>
-        <ul class="nav__links" id="navLinks">
-          <li><a href="#experiencia" data-i18n="nav.exp">Experiencia</a></li>
-          <li><a href="#proyectos" data-i18n="nav.proj">Proyectos</a></li>
-          <li><a href="#logros" data-i18n="nav.wins">Casos</a></li>
-          <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
-          <li><a href="#formacion" data-i18n="nav.edu">Formación</a></li>
-          <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
-        </ul>
-      </nav>
+    <nav class="rail__nav" aria-label="Índice del sitio">
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#experiencia" data-i18n="nav.exp">Trayectoria</a></li>
+        <li><a href="#proyectos" data-i18n="nav.proj">Proyectos</a></li>
+        <li><a href="#logros" data-i18n="nav.wins">Expediente</a></li>
+        <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
+        <li><a href="#formacion" data-i18n="nav.edu">Formación</a></li>
+        <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+    </nav>
 
       <div class="nav__actions">
         <button class="icon-btn lang-toggle" id="langToggle" aria-label="Switch to English" title="English">
@@ -106,7 +107,6 @@
           <i class="fas fa-bars"></i>
         </button>
       </div>
-    </div>
   </header>
 
   <main id="main">

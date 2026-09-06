@@ -37,7 +37,7 @@
   /* ---------- Navegación ---------- */
   function initNav() {
     const nav = $('#nav');
-    const links = $('#navLinks');
+    const links = $('.rail__nav');
     const burger = $('#hamburger');
 
     if (burger && links) {
@@ -49,7 +49,7 @@
           : '<i class="fas fa-bars"></i>';
       });
 
-      $$('a', links).forEach((a) => {
+      $$('#navLinks a').forEach((a) => {
         a.addEventListener('click', () => {
           links.classList.remove('is-open');
           burger.setAttribute('aria-expanded', 'false');

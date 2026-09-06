@@ -24,7 +24,7 @@ Sitio estático, sin frameworks ni proceso de build: se abre `index.html` y func
 
 - **HTML5** semántico, sin dependencias de build
 - **CSS3** con variables de diseño, grid y flexbox
-- **JavaScript** vanilla (sin librerías): idioma ES/EN, tema claro/oscuro, modales, scrollspy y animaciones al scroll
+- **JavaScript** vanilla (sin librerías): idioma ES/EN, tema claro/oscuro, modales, índice lateral con seguimiento de posición y animaciones al scroll
 - **Font Awesome** y **Google Fonts** por CDN
 - **Formspree** para el formulario de contacto
 
