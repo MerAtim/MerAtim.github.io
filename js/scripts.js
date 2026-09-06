@@ -404,6 +404,66 @@
   }
 
 
+
+  /* ---------- Destellos al pasar por el nombre ---------- */
+  function initChispas() {
+    const titulo = $('.hero__name');
+    if (!titulo) return;
+
+    // Sin puntero no hay hover que valga, y con movimiento reducido tampoco.
+    const hayPuntero = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!hayPuntero || reduceMotion) return;
+
+    // Los tonos viven en CSS para que sigan al tema activo.
+    const tonos = () => {
+      const cs = getComputedStyle(document.documentElement);
+      return ['--chispa-1', '--chispa-2', '--chispa-3']
+        .map((v) => cs.getPropertyValue(v).trim())
+        .filter(Boolean);
+    };
+    const ESTRELLA = 'M12 0c0 6.6 5.4 12 12 12-6.6 0-12 5.4-12 12 0-6.6-5.4-12-12-12 6.6 0 12-5.4 12-12z';
+    const MAX = 14;                 // tope de chispas vivas a la vez
+    let timer = null;
+
+    function crear() {
+      if (titulo.querySelectorAll('.chispa').length >= MAX) return;
+
+      const caja = titulo.getBoundingClientRect();
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      const tam = 9 + Math.random() * 10;
+      const paleta = tonos();
+
+      svg.setAttribute('class', 'chispa');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('width', tam);
+      svg.setAttribute('height', tam);
+      svg.setAttribute('aria-hidden', 'true');
+      path.setAttribute('d', ESTRELLA);
+      path.setAttribute('fill', paleta[Math.floor(Math.random() * paleta.length)]);
+      svg.appendChild(path);
+
+      // Nacen dentro del título, con un margen para que también salgan por los bordes.
+      svg.style.left = (-6 + Math.random() * (caja.width + 12)) + 'px';
+      svg.style.top = (-8 + Math.random() * (caja.height + 16)) + 'px';
+      svg.style.animationDelay = Math.round(Math.random() * 120) + 'ms';
+
+      svg.addEventListener('animationend', () => svg.remove());
+      titulo.appendChild(svg);
+    }
+
+    titulo.addEventListener('mouseenter', () => {
+      if (timer) return;
+      crear();
+      timer = setInterval(crear, 130);
+    });
+
+    titulo.addEventListener('mouseleave', () => {
+      clearInterval(timer);
+      timer = null;
+    });
+  }
+
   /* ---------- Elegir el idioma del CV al descargarlo ---------- */
   function initCV() {
     const btn = $('#cvBtn');
@@ -454,6 +514,7 @@
     initCounters();
     initForm();
     initCV();
+    initChispas();
     initYear();
   });
 })();

@@ -1572,3 +1572,74 @@ code {
   .brand__mark { width: 32px; height: 32px; font-size: 0.66rem; }
   .rail { padding: 0.8rem 1.15rem; gap: 0.6rem; }
 }
+
+/* =========================================================
+   DESTELLOS DEL NOMBRE
+   Al pasar el mouse por el título, el nombre se ilumina apenas
+   y salen chispas de cuatro puntas en los tonos de la paleta.
+   Se apaga solo si el sistema pide menos movimiento o si el
+   dispositivo no tiene puntero (no tiene sentido en táctil).
+   ========================================================= */
+/* Los tonos cambian con el tema: sobre crema hacen falta terracotas
+   (el rosa y el champagne se pierden en el fondo), y sobre el carbón
+   funcionan los tonos claros. */
+:root {
+  --chispa-1: #A06955;
+  --chispa-2: #8C5C4A;
+  --chispa-3: #C08A72;
+}
+
+:root[data-theme="dark"] {
+  --chispa-1: #E0A88F;
+  --chispa-2: #C9B8A8;
+  --chispa-3: #F2EBE4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --chispa-1: #E0A88F;
+    --chispa-2: #C9B8A8;
+    --chispa-3: #F2EBE4;
+  }
+}
+
+.hero__name {
+  position: relative;
+  cursor: default;
+}
+
+.hero__name .grad-text {
+  transition: text-shadow 0.45s var(--ease), color 0.45s var(--ease);
+}
+
+.hero__name:hover .grad-text {
+  text-shadow:
+    0 0 22px rgba(201, 169, 166, 0.55),
+    0 0 44px rgba(201, 184, 168, 0.35);
+}
+
+:root[data-theme="dark"] .hero__name:hover .grad-text {
+  text-shadow:
+    0 0 22px rgba(224, 168, 143, 0.45),
+    0 0 48px rgba(224, 168, 143, 0.25);
+}
+
+.chispa {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: chispa 900ms var(--ease) forwards;
+}
+
+@keyframes chispa {
+  0%   { opacity: 0;    transform: translate(-50%, -50%) scale(0.2) rotate(0deg); }
+  35%  { opacity: 0.95; transform: translate(-50%, -50%) scale(1)   rotate(45deg); }
+  100% { opacity: 0;    transform: translate(-50%, -80%) scale(0.35) rotate(110deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chispa { display: none; }
+  .hero__name:hover .grad-text { text-shadow: none; }
+}
