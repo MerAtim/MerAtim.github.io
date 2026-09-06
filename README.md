@@ -14,7 +14,7 @@ Sitio estático, sin frameworks ni proceso de build: se abre `index.html` y func
 | Inicio | Presentación, stack resumido y accesos de contacto |
 | Experiencia | Pasantía full stack, coordinación como Scrum Master y proyectos en equipo |
 | Proyectos | 4 destacados con detalle técnico + 4 académicos |
-| Logros | Situaciones técnicas concretas resueltas en proyectos reales |
+| Expediente | Cuatro casos reales con estructura forense: síntoma, investigación, causa raíz, acción y qué estaba en juego |
 | Stack | Tecnologías agrupadas por área |
 | Formación | Título universitario, certificaciones e inglés C1, con diplomas |
 | Contacto | Datos directos y formulario funcional |

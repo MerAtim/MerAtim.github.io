@@ -169,10 +169,48 @@ window.I18N = { en: {
   "t097": "Capybara Films",
 
   /* --- Logros --- */
-  "t098": "Time zone bug in a shared component",
-  "t099": "Risk of data loss caught before production",
-  "t100": "Technical review ahead of a team sprint",
-  "t101": "Migrating authentication to an httpOnly cookie",
+
+  /* --- Expediente técnico --- */
+  "lbl.sintoma": "Symptom",
+  "lbl.invest": "Investigation",
+  "lbl.causa": "Root cause",
+  "lbl.accion": "Action",
+  "lbl.clave": "What almost slipped through",
+  "lbl.riesgo": "What was at stake",
+  "lbl.sit": "Situation",
+  "lbl.decision": "Decision",
+  "lbl.hallazgos": "Findings",
+  "lbl.result": "Outcome",
+  "lbl.origen": "Origin",
+  "lbl.metodo": "Method",
+  "k01.ctx": "E-learning platform · internship",
+  "k01.quote": "The calendar showed the day before the one you picked.",
+  "k01.sintoma": "A date picker consistently returned the day before the one selected. It was not failing on one screen: it was a shared component used by <strong>16 screens</strong> of the admin panel.",
+  "k01.invest": "The offset was always exactly one day, never random. That ruled out a race condition and pointed at a date conversion rather than the data itself.",
+  "k01.causa": "The string <code>YYYY-MM-DD</code> is parsed as midnight <strong>UTC</strong>. In a time zone behind UTC, the local getters return the previous day.",
+  "k01.accion": "I fixed the conversion and wrote tests that pin the time zone explicitly.",
+  "k01.clave": "The test environment ran in UTC. Without pinning the zone, a test would have passed green <strong>with the bug still in place</strong>. Fixing it without that would have left the door open for the bug to return.",
+  "k02.ctx": "E-learning platform · internship",
+  "k02.quote": "An empty screen led all the way to every student's progress.",
+  "k02.sintoma": "A settings screen was coming up empty. On the face of it, a minor interface problem.",
+  "k02.invest": "Tracing where that data came from, I found two loading processes that <strong>deleted a course's lessons in order to recreate them</strong>. I went one step further and checked what hung off those lessons.",
+  "k02.causa": "Student progress was tied to those lessons with <strong>cascade deletion</strong>. The processes had never been run in production.",
+  "k02.riesgo": "Running them would have wiped real student progress, <strong>with no way to recover it</strong>.",
+  "k02.accion": "I reported it with the full cause-and-effect chain, before it reached production.",
+  "k03.ctx": "Teamwork · review before the sprint",
+  "k03.quote": "I reviewed all fourteen tickets before the team wrote a single line.",
+  "k03.sit": "A two-week sprint between three people was about to start, with <strong>14 tickets</strong> already written and ready to hand out.",
+  "k03.decision": "Instead of starting to code, I checked every ticket against the real codebase. One day of reading before two weeks of work.",
+  "k03.hallazgos": "Three proposed code snippets that failed when run. A service we were asked to build that <strong>already existed with better coverage</strong>. A ticket whose real scope was four times what it described.",
+  "k03.accion": "I documented each finding with a file and line reference, so it was verifiable rather than an opinion.",
+  "k03.result": "The team did not lose its first day, and the scope was re-planned with the right information.",
+  "k04.ctx2": "personal project",
+  "k04.quote": "It worked with curl. It failed in a real browser.",
+  "k04.origen": "A teammate found that the session token lived in <code>localStorage</code>. I took on the migration to an <strong>httpOnly</strong> cookie, with frontend and backend on unrelated domains.",
+  "k04.sintoma": "The session would not persist. Tests against the API passed; the browser kept losing the cookie.",
+  "k04.causa": "Two causes, chained. Sanctum <strong>overwrites <code>SameSite</code> at runtime</strong> without warning, breaking the cross-site cookie. And its standard CSRF cookie pattern is incompatible without a shared domain: <code>document.cookie</code> cannot read a cookie from another origin.",
+  "k04.metodo": "Every hypothesis verified against the deployed backend, not against config or local tests. The second cause <strong>only shows up in a real browser</strong>: with <code>curl</code> the problem is invisible.",
+  "k04.clave": "That a test environment which does not reproduce the real one's constraints can confirm a hypothesis that is wrong.",
 
   /* --- Stack: títulos de tarjeta --- */
   "t102": "Backend",
@@ -300,10 +338,6 @@ window.I18N = { en: {
   "ph.message": "Tell me what you have in mind...",
 
   /* --- Logros: cuerpo de las tarjetas --- */
-  "win.p1": "A date picker was showing the day before the one selected: the string <code>YYYY-MM-DD</code> was read as midnight UTC and, in a time zone behind UTC, the local getters returned the previous day. It affected <strong>16 screens</strong> of the admin panel. Beyond fixing it, I wrote tests that pin the time zone explicitly, because the test environment ran in UTC and without that they would have passed with the bug still there.",
-  "win.p2": "While looking into why a settings screen was coming up empty, I found that two loading processes deleted a course’s lessons in order to recreate them, and that student progress hung off those lessons with <strong>cascade deletion</strong>. Running them in production would have wiped real progress, with no way to recover it. I reported it with the full cause-and-effect chain.",
-  "win.p3": "Before a two-week sprint between three people, I reviewed the project’s <strong>14 tickets</strong> against the real code. I found three proposed snippets that failed when run, a service we were asked to build that already existed with better coverage, and a ticket whose real scope was four times what was described. I documented it with file and line, and the team did not lose the first day.",
-  "win.p4": "In CapyMeal I moved the token from <code>localStorage</code> to an <strong>httpOnly</strong> cookie after a teammate’s security finding. Along the way, non-obvious problems of a genuine cross-origin architecture showed up: Sanctum overwrites <code>SameSite</code> at runtime, and its standard CSRF cookie pattern does not work when frontend and backend do not share a domain. Every hypothesis was verified against the deployed backend, not just locally.",
 
   /* --- Terminal del hero --- */
   "term.code": "<span class=\"k\">const</span> dev <span class=\"p\">=</span> {\n  java<span class=\"p\">:</span>    [<span class=\"s\">\"Spring Boot\"</span><span class=\"p\">,</span> <span class=\"s\">\"JPA\"</span>]<span class=\"p\">,</span>\n  php<span class=\"p\">:</span>     [<span class=\"s\">\"Laravel\"</span><span class=\"p\">,</span> <span class=\"s\">\"Sanctum\"</span>]<span class=\"p\">,</span>\n  front<span class=\"p\">:</span>   [<span class=\"s\">\"Vue 3\"</span><span class=\"p\">,</span> <span class=\"s\">\"React\"</span>]<span class=\"p\">,</span>\n  data<span class=\"p\">:</span>    [<span class=\"s\">\"PostgreSQL\"</span><span class=\"p\">,</span> <span class=\"s\">\"MySQL\"</span>]<span class=\"p\">,</span>\n  tests<span class=\"p\">:</span>   [<span class=\"s\">\"JUnit\"</span><span class=\"p\">,</span> <span class=\"s\">\"PHPUnit\"</span>]<span class=\"p\">,</span>\n  devops<span class=\"p\">:</span>  [<span class=\"s\">\"Docker\"</span><span class=\"p\">,</span> <span class=\"s\">\"CI/CD\"</span>]<span class=\"p\">,</span>\n  langs<span class=\"p\">:</span>   { es<span class=\"p\">:</span> <span class=\"s\">\"native\"</span><span class=\"p\">,</span> en<span class=\"p\">:</span> <span class=\"s\">\"C1\"</span> }\n}<span class=\"p\">;</span>"

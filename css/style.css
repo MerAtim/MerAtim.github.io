@@ -1380,3 +1380,112 @@ code {
   .cv-pick .btn { width: 100%; }
   .cv-pick__menu { left: 0; right: 0; min-width: 0; }
 }
+
+/* =========================================================
+   EXPEDIENTE TÉCNICO
+   Cada caso es una ficha forense: encabezado con número y
+   contexto, una línea que resume el problema en voz propia,
+   y una grilla de etiqueta/contenido para que se pueda leer
+   entero o escanear solo las causas.
+   ========================================================= */
+.casos { display: grid; gap: 1.75rem; }
+
+.caso {
+  position: relative;
+  padding: 2rem 2.15rem 1.75rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: border-left-color var(--t), transform var(--t), box-shadow var(--t);
+}
+
+.caso:hover {
+  border-left-color: var(--accent-solid);
+  transform: translateX(3px);
+  box-shadow: var(--shadow-md);
+}
+
+.caso__head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.caso__num {
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.caso__ctx { color: var(--text-dim); }
+
+.caso__ctx::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  margin-right: 0.85rem;
+  vertical-align: middle;
+  background: var(--rule);
+}
+
+/* La frase que abre el caso: es el titular, no una cita decorativa. */
+.caso__quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  max-width: 34ch;
+}
+
+.caso__quote::before { content: "«"; color: var(--accent-soft); }
+.caso__quote::after  { content: "»"; color: var(--accent-soft); }
+
+/* Grilla etiqueta / contenido */
+.caso__grid {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 0.9rem 1.75rem;
+  align-items: start;
+}
+
+.caso__grid dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding-top: 0.28em;
+  border-top: 1px solid var(--border);
+}
+
+.caso__grid dd {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  padding-top: 0.28em;
+  border-top: 1px solid var(--border);
+}
+
+.caso__grid dd strong { color: var(--text); font-weight: 600; }
+
+.caso .chips { margin-top: 1.6rem; padding-top: 1.3rem; border-top: 1px solid var(--border); }
+
+@media (max-width: 720px) {
+  .caso { padding: 1.5rem 1.35rem 1.35rem; }
+  .caso__grid { grid-template-columns: 1fr; gap: 0.35rem; }
+  .caso__grid dd { border-top: 0; padding-top: 0; margin-bottom: 0.9rem; }
+  .caso__quote { max-width: none; }
+  .caso__head { flex-wrap: wrap; gap: 0.5rem; }
+}

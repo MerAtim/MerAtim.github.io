@@ -68,7 +68,7 @@
         <ul class="nav__links" id="navLinks">
           <li><a href="#experiencia" data-i18n="nav.exp">Experiencia</a></li>
           <li><a href="#proyectos" data-i18n="nav.proj">Proyectos</a></li>
-          <li><a href="#logros" data-i18n="nav.wins">Logros</a></li>
+          <li><a href="#logros" data-i18n="nav.wins">Casos</a></li>
           <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
           <li><a href="#formacion" data-i18n="nav.edu">Formación</a></li>
           <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
@@ -544,77 +544,123 @@
       </div>
     </section>
 
-    <!-- ===== LOGROS ===== -->
+    <!-- ===== CASOS ===== -->
     <section class="section section--alt" id="logros">
       <div class="wrap">
         <div class="section__head">
-          <p class="section__tag" data-i18n="sec.wins.tag">Impacto</p>
-          <h2 class="section__title" data-i18n="sec.wins.title">Logros técnicos concretos</h2>
+          <p class="section__tag" data-i18n="sec.wins.tag">Expediente</p>
+          <h2 class="section__title" data-i18n="sec.wins.title">Cuatro casos reales</h2>
           <p class="section__sub" data-i18n="sec.wins.sub">
-            Situaciones reales de trabajo. Cuentan más sobre cómo pienso que una lista de tecnologías.
+            No una lista de tecnologías, sino cuatro problemas que aparecieron en proyectos
+            en producción y cómo los seguí hasta la causa. Es la parte del trabajo que no
+            se ve en un stack.
           </p>
         </div>
 
-        <div class="wins">
-          <article class="win reveal">
-            <span class="win__icon"><i class="fas fa-clock-rotate-left"></i></span>
-            <div>
-              <h3 data-i18n="t098">Bug de zona horaria en un componente compartido</h3>
-              <p data-i18n="win.p1">
-                Un selector de fechas mostraba el día anterior al elegido: el string
-                <code>YYYY-MM-DD</code> se interpretaba como medianoche UTC y, en un huso detrás
-                de UTC, los getters locales devolvían el día previo. Afectaba a
-                <strong>16 pantallas</strong> del panel. Además de corregirlo, escribí tests que
-                fijan la zona horaria explícitamente, porque el entorno de tests corría en UTC y
-                sin eso habrían pasado igual con el bug presente.
-              </p>
+        <div class="casos">
+
+          <article class="caso reveal">
+            <div class="caso__head">
+              <span class="caso__num">01</span>
+              <span class="caso__ctx" data-i18n="k01.ctx">Plataforma de e-learning · pasantía</span>
+            </div>
+            <p class="caso__quote" data-i18n="k01.quote">El calendario mostraba el día anterior al que elegías.</p>
+            <dl class="caso__grid">
+              <dt data-i18n="lbl.sintoma">Síntoma</dt>
+              <dd data-i18n="k01.sintoma">Un selector de fechas devolvía siempre el día previo al seleccionado. No fallaba en una pantalla: era un componente compartido por <strong>16 pantallas</strong> del panel de administración.</dd>
+              <dt data-i18n="lbl.invest">Investigación</dt>
+              <dd data-i18n="k01.invest">El desfase era siempre de un día, nunca aleatorio. Eso descartaba una condición de carrera y apuntaba a una conversión de fecha, no a los datos.</dd>
+              <dt data-i18n="lbl.causa">Causa raíz</dt>
+              <dd data-i18n="k01.causa">El string <code>YYYY-MM-DD</code> se interpreta como medianoche <strong>UTC</strong>. En un huso horario detrás de UTC, los getters locales devuelven el día anterior.</dd>
+              <dt data-i18n="lbl.accion">Acción</dt>
+              <dd data-i18n="k01.accion">Corregí la conversión y escribí tests que fijan la zona horaria de forma explícita.</dd>
+              <dt data-i18n="lbl.clave">Lo que casi se escapa</dt>
+              <dd data-i18n="k01.clave">El entorno de tests corría en UTC. Sin fijar el huso, un test habría pasado en verde <strong>con el bug todavía adentro</strong>. Corregirlo sin eso habría dejado la puerta abierta a que volviera.</dd>
+            </dl>
+            <div class="chips">
+              <span class="chip">Vue 3</span>
+              <span class="chip">Laravel</span>
+              <span class="chip">Vitest</span>
+              <span class="chip">PHPUnit</span>
             </div>
           </article>
 
-          <article class="win reveal">
-            <span class="win__icon"><i class="fas fa-shield-halved"></i></span>
-            <div>
-              <h3 data-i18n="t099">Riesgo de pérdida de datos detectado antes de producción</h3>
-              <p data-i18n="win.p2">
-                Investigando por qué una pantalla de configuración aparecía vacía, encontré que
-                dos procesos de carga borraban las lecciones de un curso para recrearlas, y que
-                el progreso de los alumnos colgaba de esas lecciones con
-                <strong>borrado en cascada</strong>. Ejecutarlos en producción habría eliminado el
-                progreso real, sin recuperación posible. Lo reporté con la cadena completa de
-                causa y efecto.
-              </p>
+          <article class="caso reveal">
+            <div class="caso__head">
+              <span class="caso__num">02</span>
+              <span class="caso__ctx" data-i18n="k02.ctx">Plataforma de e-learning · pasantía</span>
+            </div>
+            <p class="caso__quote" data-i18n="k02.quote">Una pantalla vacía llevaba hasta el progreso de todos los alumnos.</p>
+            <dl class="caso__grid">
+              <dt data-i18n="lbl.sintoma">Síntoma</dt>
+              <dd data-i18n="k02.sintoma">Una pantalla de configuración aparecía vacía. En apariencia, un problema menor de interfaz.</dd>
+              <dt data-i18n="lbl.invest">Investigación</dt>
+              <dd data-i18n="k02.invest">Al seguir de dónde salían esos datos, encontré dos procesos de carga que <strong>borraban las lecciones de un curso para recrearlas</strong>. Fui un paso más allá y revisé qué colgaba de esas lecciones.</dd>
+              <dt data-i18n="lbl.causa">Causa raíz</dt>
+              <dd data-i18n="k02.causa">El progreso de los alumnos estaba atado a esas lecciones con <strong>borrado en cascada</strong>. Los procesos nunca se habían ejecutado en producción.</dd>
+              <dt data-i18n="lbl.riesgo">Lo que estaba en juego</dt>
+              <dd data-i18n="k02.riesgo">Ejecutarlos habría eliminado el progreso real de los alumnos, <strong>sin recuperación posible</strong>.</dd>
+              <dt data-i18n="lbl.accion">Acción</dt>
+              <dd data-i18n="k02.accion">Lo reporté con la cadena completa de causa y efecto, antes de que llegara a producción.</dd>
+            </dl>
+            <div class="chips">
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Laravel</span>
+              <span class="chip">Integridad de datos</span>
             </div>
           </article>
 
-          <article class="win reveal">
-            <span class="win__icon"><i class="fas fa-clipboard-check"></i></span>
-            <div>
-              <h3 data-i18n="t100">Revisión técnica previa a un desarrollo en equipo</h3>
-              <p data-i18n="win.p3">
-                Antes de arrancar un desarrollo de dos semanas entre tres personas, revisé los
-                <strong>14 tickets</strong> del proyecto contra el código real. Encontré tres
-                fragmentos propuestos que fallaban al ejecutarse, un servicio que se pedía
-                construir y ya existía con mayor cobertura, y un ticket cuyo alcance real era
-                cuatro veces el descrito. Lo documenté con archivo y línea, y el equipo no perdió
-                el primer día.
-              </p>
+          <article class="caso reveal">
+            <div class="caso__head">
+              <span class="caso__num">03</span>
+              <span class="caso__ctx" data-i18n="k03.ctx">Trabajo en equipo · revisión previa</span>
+            </div>
+            <p class="caso__quote" data-i18n="k03.quote">Revisé los catorce tickets antes de que el equipo escribiera una línea.</p>
+            <dl class="caso__grid">
+              <dt data-i18n="lbl.sit">Situación</dt>
+              <dd data-i18n="k03.sit">Arrancaba un desarrollo de dos semanas entre tres personas, con <strong>14 tickets</strong> ya escritos y listos para repartir.</dd>
+              <dt data-i18n="lbl.decision">Decisión</dt>
+              <dd data-i18n="k03.decision">En vez de empezar a codear, contrasté cada ticket contra el código real. Un día de lectura antes de dos semanas de trabajo.</dd>
+              <dt data-i18n="lbl.hallazgos">Hallazgos</dt>
+              <dd data-i18n="k03.hallazgos">Tres fragmentos de código propuestos que fallaban al ejecutarse. Un servicio que se pedía construir y <strong>ya existía con mayor cobertura</strong>. Un ticket cuyo alcance real era cuatro veces el descrito.</dd>
+              <dt data-i18n="lbl.accion">Acción</dt>
+              <dd data-i18n="k03.accion">Documenté cada hallazgo con referencia a archivo y línea, para que fuera verificable y no una opinión.</dd>
+              <dt data-i18n="lbl.result">Resultado</dt>
+              <dd data-i18n="k03.result">El equipo no perdió el primer día, y el alcance se replanificó con la información correcta.</dd>
+            </dl>
+            <div class="chips">
+              <span class="chip">Code review</span>
+              <span class="chip">Estimación</span>
+              <span class="chip">Git Flow</span>
             </div>
           </article>
 
-          <article class="win reveal">
-            <span class="win__icon"><i class="fas fa-key"></i></span>
-            <div>
-              <h3 data-i18n="t101">Migración de autenticación a cookie httpOnly</h3>
-              <p data-i18n="win.p4">
-                En CapyMeal moví el token de <code>localStorage</code> a una cookie
-                <strong>httpOnly</strong> a partir de un hallazgo de seguridad de un compañero.
-                En el camino aparecieron problemas no obvios de una arquitectura cross-origin
-                real: Sanctum sobreescribe <code>SameSite</code> en runtime, y su patrón estándar
-                de cookie CSRF no funciona cuando frontend y backend no comparten dominio. Cada
-                hipótesis se verificó contra el backend desplegado, no solo en local.
-              </p>
+          <article class="caso reveal">
+            <div class="caso__head">
+              <span class="caso__num">04</span>
+              <span class="caso__ctx">CapyMeal · <span data-i18n="k04.ctx2">proyecto propio</span></span>
+            </div>
+            <p class="caso__quote" data-i18n="k04.quote">Funcionaba con curl. Fallaba en un navegador de verdad.</p>
+            <dl class="caso__grid">
+              <dt data-i18n="lbl.origen">Origen</dt>
+              <dd data-i18n="k04.origen">Un compañero encontró que el token de sesión vivía en <code>localStorage</code>. Asumí la migración a una cookie <strong>httpOnly</strong>, con frontend y backend en dominios sin relación.</dd>
+              <dt data-i18n="lbl.sintoma">Síntoma</dt>
+              <dd data-i18n="k04.sintoma">La sesión no persistía. Los tests contra la API pasaban; el navegador seguía perdiendo la cookie.</dd>
+              <dt data-i18n="lbl.causa">Causa raíz</dt>
+              <dd data-i18n="k04.causa">Dos, encadenadas. Sanctum <strong>sobreescribe <code>SameSite</code> en runtime</strong> sin avisar, rompiendo la cookie cross-site. Y su patrón estándar de cookie CSRF es incompatible sin dominio compartido: <code>document.cookie</code> no puede leer una cookie de otro origen.</dd>
+              <dt data-i18n="lbl.metodo">Método</dt>
+              <dd data-i18n="k04.metodo">Cada hipótesis verificada contra el backend desplegado, no contra la configuración ni contra tests locales. La segunda causa <strong>solo aparece en un navegador real</strong>: con <code>curl</code> el problema es invisible.</dd>
+              <dt data-i18n="lbl.clave">Lo que me llevé</dt>
+              <dd data-i18n="k04.clave">Que un entorno de prueba que no reproduce las restricciones del real puede confirmarte una hipótesis equivocada.</dd>
+            </dl>
+            <div class="chips">
+              <span class="chip">Laravel Sanctum</span>
+              <span class="chip">Cookies httpOnly</span>
+              <span class="chip">CORS</span>
+              <span class="chip">OWASP</span>
             </div>
           </article>
+
         </div>
       </div>
     </section>
