@@ -68,8 +68,8 @@ window.I18N = { en: {
   "t006": "Mentored junior developers through their first experience in a professional working environment.",
   "t007": "<strong>Manual testing</strong> of the site and quality control before release.",
   "t008": "Handled the <strong>domain purchase and setup</strong> through to getting the site live.",
-  "t009": "Took part in building a platform for <strong>task management during plant shutdowns</strong>.",
-  "t010": "Collaborated on development, testing, planning and delivery within the agreed deadlines.",
+  "t009": "Full stack development of a platform for <strong>plant shutdown management</strong>: React with TypeScript on the client and FastAPI on the server, with Clean Architecture on both layers.",
+  "t010": "I built use cases, domain entities, REST endpoints and the <strong>Keycloak SSO</strong> authentication integration.",
   "t011": "Development of applications for Universidad de La Punta.",
   "t012": "Design of software solutions for medical practices with the CTRL-Z group.",
   "t013": "Software development, databases, object-oriented programming and agile methodologies.",
@@ -157,7 +157,7 @@ window.I18N = { en: {
   /* --- Títulos de experiencia y proyectos --- */
   "t086": "Full Stack Developer (PHP / Vue)",
   "t087": "Scrum Master · QA · Coordination",
-  "t088": "Developer · Testing · Planning",
+  "t088": "Full Stack Developer",
   "t089": "Full Stack Developer",
   "t090": "E-learning platform",
   "t091": "CapyMeal",
@@ -212,6 +212,11 @@ window.I18N = { en: {
   "k04.metodo": "Every hypothesis verified against the deployed backend, not against config or local tests. The second cause <strong>only shows up in a real browser</strong>: with <code>curl</code> the problem is invisible.",
   "k04.clave": "That a test environment which does not reproduce the real one's constraints can confirm a hypothesis that is wrong.",
 
+  /* --- Trabajo Final Integrador --- */
+  "tf01": "<strong>131 commits</strong>, the largest individual contribution on a team of five, with conventional commits and pull request review.",
+  "tf02": "It was my <strong>final degree project</strong> for the University Technical Degree in Programming.",
+  "t218b": "Clean Architecture",
+
   /* --- Stack: títulos de tarjeta --- */
   "t102": "Backend",
   "t103": "Frontend &amp; UI",
@@ -230,7 +235,7 @@ window.I18N = { en: {
   /* --- Fechas --- */
   "t113": "Aug 2026 — Present",
   "t114": "Sep 2025 — Jul 2026",
-  "t115": "Nov 2025 — Feb 2026",
+  "t115": "Nov 2025 — Jan 2026",
   "t116": "Nov 2022 — Sep 2024",
   "t117": "Graduated · July 2026",
   "t118": "2025",
@@ -241,7 +246,7 @@ window.I18N = { en: {
   /* --- Subtítulos de experiencia y formación --- */
   "t122": "Internship · Online programming academy",
   "t123": "Corporate website · Ferretería San Francisco",
-  "t124": "Maintenance management platform · Oil &amp; gas sector",
+  "t124": "Plant shutdown management platform · Oil &amp; gas sector",
   "t125": "Universidad de La Punta (San Luis) · CTRL-Z group",
   "t126": "Universidad Tecnológica Nacional · FRSR",
   "t127": "English Discoveries · Edusoft (ETS) · Buenos Aires Ciudad Bilingüe",
@@ -295,8 +300,6 @@ window.I18N = { en: {
   "t211": "Scrum",
   "t212": "Scrum",
   "t213": "Scrum",
-  "t214": "Testing",
-  "t215": "Agile",
   "t216": "Deploy &amp; domain",
   "t217": "Domain &amp; deploy",
   "t218": "Hexagonal architecture",
