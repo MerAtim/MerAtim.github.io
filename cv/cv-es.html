@@ -145,12 +145,12 @@ Programación (UTN). Inglés C1. Orientada a posiciones de backend y desarrollo 
 
 <div class="role">
   <h3>MedConnect &mdash; Plataforma de turnos e historias clínicas</h3>
-  <p class="tech">Java 17, Spring Boot 3.2, Spring Security, PostgreSQL, Flyway, React 18, Docker &middot; github.com/MerAtim/MediConnect</p>
+  <p class="tech">Java 25, Spring Boot 3.5, Spring Security, PostgreSQL, Flyway, React 18, Docker &middot; github.com/MerAtim/MediConnect</p>
   <ul>
-    <li>Arquitectura hexagonal, con dominio, casos de uso, infraestructura y adaptadores REST separados.</li>
-    <li>Autenticación JWT en cookie httpOnly y autorización por rol (Administrador, Médico, Paciente) en cada endpoint.</li>
-    <li>Cifrado AES-256-GCM de las historias clínicas en base de datos y migraciones versionadas con Flyway.</li>
-    <li>Tests de integración con Testcontainers contra PostgreSQL real y CI con GitHub Actions en cada push y pull request.</li>
+    <li>Arquitectura hexagonal con Value Objects y reglas de negocio en el dominio; API REST versionada (/api/v1).</li>
+    <li>Autenticación JWT en cookie httpOnly con revocación al cerrar sesión, y autorización por rol en cada endpoint.</li>
+    <li>Historia clínica cifrada con AES-256-GCM; re-auditoría de 32 hallazgos con los críticos y altos resueltos.</li>
+    <li>Más de 260 tests, integración con Testcontainers contra PostgreSQL real y CI con GitHub Actions en cada PR.</li>
   </ul>
 </div>
 

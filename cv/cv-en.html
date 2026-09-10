@@ -145,12 +145,12 @@ Programming (UTN). English at C1 level. Focused on backend and full stack roles.
 
 <div class="role">
   <h3>MedConnect &mdash; Appointment and medical record platform</h3>
-  <p class="tech">Java 17, Spring Boot 3.2, Spring Security, PostgreSQL, Flyway, React 18, Docker &middot; github.com/MerAtim/MediConnect</p>
+  <p class="tech">Java 25, Spring Boot 3.5, Spring Security, PostgreSQL, Flyway, React 18, Docker &middot; github.com/MerAtim/MediConnect</p>
   <ul>
-    <li>Hexagonal architecture, with domain, use cases, infrastructure and REST adapters kept separate.</li>
-    <li>JWT authentication in an httpOnly cookie and role-based authorisation (Administrator, Doctor, Patient) on every endpoint.</li>
-    <li>AES-256-GCM encryption of medical records in the database and versioned migrations with Flyway.</li>
-    <li>Integration tests with Testcontainers against real PostgreSQL and CI with GitHub Actions on every push and pull request.</li>
+    <li>Hexagonal architecture with Value Objects and business rules in the domain; versioned REST API (/api/v1).</li>
+    <li>JWT authentication in an httpOnly cookie with revocation on logout, and role-based authorisation on every endpoint.</li>
+    <li>AES-256-GCM encryption of medical records; a 32-finding re-audit with every critical, high and medium issue resolved.</li>
+    <li>Over 260 tests, integration with Testcontainers against real PostgreSQL and CI with GitHub Actions on every pull request.</li>
   </ul>
 </div>
 

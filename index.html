@@ -426,11 +426,11 @@
             </div>
             <div class="pcard__body">
               <h3 data-i18n="t092">MedConnect</h3>
-              <p class="pcard__tagline" data-i18n="t137">Java 17 · Spring Boot 3.2 · React 18</p>
+              <p class="pcard__tagline" data-i18n="t137">Java 25 · Spring Boot 3.5 · React 18</p>
               <p class="pcard__desc" data-i18n="t141">
                 Gestión de turnos e historias clínicas con roles de Administrador, Médico y
-                Paciente. Arquitectura hexagonal, autenticación JWT en cookie httpOnly e
-                historia clínica cifrada AES-256-GCM en base de datos.
+                Paciente. Arquitectura hexagonal, historia clínica cifrada AES-256-GCM y más de
+                260 tests. Pasó por tres auditorías de seguridad y arquitectura.
               </p>
               <div class="chips">
                 <span class="chip">Spring Boot</span>
@@ -701,7 +701,7 @@
             </div>
             <p class="stack__note" data-i18n="t147">Donde más cómoda me siento.</p>
             <div class="chips">
-              <span class="chip">Java 17</span>
+              <span class="chip">Java 25</span>
               <span class="chip">Spring Boot 3</span>
               <span class="chip">Spring Security</span>
               <span class="chip">Spring Data JPA</span>
@@ -1112,27 +1112,38 @@
 
       <h4 data-i18n="t060">Funcionalidades</h4>
       <ul>
-        <li data-i18n="t064"><strong>Turnos:</strong> alta (solo Administrador), listado paginado y filtrable, y cambio de estado con reglas por rol.</li>
-        <li data-i18n="t065"><strong>Médicos y pacientes:</strong> alta, edición y baja, con directorios acotados por rol — un Médico solo ve a sus propios pacientes.</li>
-        <li data-i18n="t066"><strong>Historia clínica:</strong> registros cargados por el Médico y exportación a texto por el Administrador. El contenido se guarda <strong>cifrado con AES-256-GCM</strong>, no en texto plano.</li>
+        <li data-i18n="t064"><strong>Turnos:</strong> alta (solo Administrador), listado paginado y filtrable, y cambio de estado con reglas por rol. Ni el médico ni el paciente pueden quedar con dos turnos a la misma hora.</li>
+        <li data-i18n="t065"><strong>Médicos y pacientes:</strong> alta, edición y baja, con directorios acotados por rol — un Médico solo ve a sus propios pacientes. No se puede dar de baja a nadie con turnos futuros agendados.</li>
+        <li data-i18n="t066"><strong>Historia clínica:</strong> registros cargados por el Médico y exportación a texto por el Administrador. Solo se habilita con un turno real, ya ocurrido y no cancelado, y el contenido se guarda <strong>cifrado con AES-256-GCM</strong>, no en texto plano.</li>
         <li data-i18n="t067"><strong>Cuentas de acceso</strong> separadas de las fichas, vinculadas por email, con la unicidad forzada a nivel de base de datos.</li>
+        <li data-i18n="mc01"><strong>Sesiones revocables:</strong> cerrar sesión o cambiar la contraseña invalida los JWT ya emitidos, en lugar de dejarlos vivos hasta que vencen.</li>
+        <li data-i18n="mc02"><strong>API REST versionada</strong> bajo <code>/api/v1</code> y documentada con Swagger / OpenAPI.</li>
         <li data-i18n="t068"><strong>Health checks</strong> expuestos con Spring Boot Actuator para chequeos de liveness y readiness de un orquestador.</li>
       </ul>
 
       <h4 data-i18n="t061">Stack</h4>
       <ul>
-        <li data-i18n="t069"><strong>Backend:</strong> Java 17, Spring Boot 3.2, Spring Security con JWT en cookie httpOnly, Spring Data JPA, PostgreSQL, Flyway, Springdoc OpenAPI, JJWT y JaCoCo.</li>
-        <li data-i18n="t070"><strong>Frontend:</strong> React 18, Vite y Tailwind CSS.</li>
-        <li data-i18n="t071"><strong>Testing:</strong> JUnit, Mockito y Testcontainers en backend (integración contra PostgreSQL real); Vitest y React Testing Library en frontend.</li>
+        <li data-i18n="t069"><strong>Backend:</strong> Java 25, Spring Boot 3.5, Spring Security con JWT en cookie httpOnly, Spring Data JPA, PostgreSQL, Flyway, Springdoc OpenAPI, JJWT y JaCoCo.</li>
+        <li data-i18n="t070"><strong>Frontend:</strong> React 18, Vite y Tailwind CSS, organizado en componentes por sección y hooks de datos propios.</li>
+        <li data-i18n="t071"><strong>Testing:</strong> <strong>más de 260 tests</strong> con JUnit, Mockito y Testcontainers en backend (integración contra PostgreSQL real); Vitest y React Testing Library en frontend.</li>
         <li data-i18n="t072"><strong>Infra:</strong> Docker con multi-stage builds e imágenes non-root, Docker Compose orquestando backend, frontend y base de datos con healthchecks reales entre servicios, y GitHub Actions corriendo build y tests en cada push y PR.</li>
       </ul>
 
       <h4 data-i18n="t062">Decisiones de arquitectura</h4>
       <ul>
         <li data-i18n="t073"><strong>Arquitectura hexagonal:</strong> dominio, casos de uso, infraestructura y adaptadores REST separados, siguiendo principios SOLID.</li>
+        <li data-i18n="mc03"><strong>Value Objects</strong> en el dominio (Email, DNI) que validan su propio formato, y reglas de negocio como métodos del modelo (por ejemplo, <code>Turno.habilitaHistoriaClinica()</code>) en vez de repetirlas en cada servicio.</li>
         <li data-i18n="t074">Migraciones de base de datos versionadas con Flyway.</li>
         <li data-i18n="t075">Git Flow simplificado y commits atómicos y convencionales.</li>
         <li data-i18n="t076">Variables sensibles fuera del código, sin secretos hardcodeados.</li>
+      </ul>
+
+      <h4 data-i18n="t042">Lo más interesante que resolví</h4>
+      <ul>
+        <li data-i18n="mc04">Una re-auditoría de seguridad, arquitectura, tests y frontend encontró <strong>32 hallazgos</strong>. Resolví los 4 críticos, los 8 altos y los 16 medios, y verifiqué cada arreglo contra PostgreSQL real, no solo con tests.</li>
+        <li data-i18n="mc05">El más serio: un médico podía agendar un turno, cancelarlo y aun así escribir un diagnóstico, quedándose con <strong>acceso permanente a la historia clínica</strong> del paciente. Lo cerré con una regla del dominio que exige un turno real, ya ocurrido y no cancelado.</li>
+        <li data-i18n="mc06">Al introducir DNI como Value Object encontré un bug silencioso: una comparación de <code>String</code> contra el tipo nuevo compilaba sin error pero daba siempre <code>false</code>, y habría roto la búsqueda de pacientes al otorgar un turno.</li>
+        <li data-i18n="mc07">Actualicé a <strong>Java 25 y Spring Boot 3.5.16</strong>, cerrando dos CVE de la cadena de dependencias, una de las cuales podía hacer desaparecer los headers de seguridad.</li>
       </ul>
 
       <div class="pd__actions">
