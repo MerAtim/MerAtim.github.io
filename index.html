@@ -11,6 +11,11 @@
 
   <link rel="canonical" href="https://meratim.github.io/">
 
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Maria Mercedes Atim">
   <meta property="og:url" content="https://meratim.github.io/">
@@ -378,27 +383,31 @@
           <!-- CapyMeal -->
           <article class="pcard reveal">
             <div class="pcard__top pcard__top--b">
-              <span class="pcard__badge" data-i18n="t132">Personal · PWA</span>
+              <span class="pcard__badge" data-i18n="t132">Personal · En producción</span>
               <i class="fas fa-utensils pcard__icon"></i>
             </div>
             <div class="pcard__body">
               <h3 data-i18n="t091">CapyMeal</h3>
               <p class="pcard__tagline" data-i18n="t136">Vue 3 · Laravel 12 · PostgreSQL</p>
               <p class="pcard__desc" data-i18n="t140">
-                Diario personal de comidas, con Capi el carpincho como mascota. Login social
-                con Google y Microsoft, export a PDF, PWA instalable que funciona offline y
-                APK de Android sin pasar por Play Store.
+                Diario personal de comidas, con Capi el carpincho como mascota. Bilingüe, con
+                verificación en dos pasos, login con Google y Microsoft, export a PDF, PWA
+                offline y APK de Android.
               </p>
               <div class="chips">
                 <span class="chip">Vue 3</span>
-                <span class="chip">Vuetify</span>
                 <span class="chip">Laravel 12</span>
                 <span class="chip">OAuth2</span>
+                <span class="chip">2FA · TOTP</span>
+                <span class="chip">i18n</span>
                 <span class="chip">PWA</span>
                 <span class="chip">GitHub Actions</span>
                 <span class="chip">Sentry</span>
               </div>
               <div class="pcard__actions">
+                <a class="btn btn--ghost btn--sm" href="https://capy-meal.vercel.app" target="_blank" rel="noopener">
+                  <i class="fas fa-arrow-up-right-from-square"></i> <span data-i18n="cm05">App en vivo</span>
+                </a>
                 <button class="btn btn--ghost btn--sm js-project" data-project="capymeal">
                   <i class="fas fa-circle-info"></i> <span data-i18n="t221">Ver detalle</span>
                 </button>
@@ -1051,20 +1060,22 @@
 
       <h4 data-i18n="t040">Características</h4>
       <ul>
-        <li data-i18n="t044">Autenticación con email y contraseña, más <strong>login social con Google y Microsoft</strong> (Azure/Entra ID) vía OAuth2.</li>
+        <li data-i18n="t044">Registro con email y contraseña con <strong>verificación por link firmado</strong>, más <strong>login social con Google y Microsoft</strong> (Azure/Entra ID) vía OAuth2.</li>
+        <li data-i18n="cm01"><strong>Verificación en dos pasos (2FA)</strong> opcional por app autenticadora (TOTP): código QR, secreto encriptado en reposo y diez códigos de recuperación de un solo uso, guardados hasheados como una contraseña.</li>
         <li data-i18n="t045">Sesión por <strong>cookie httpOnly cross-origin</strong>, con frontend y backend en dominios distintos.</li>
+        <li data-i18n="cm02"><strong>Bilingüe de punta a punta</strong> (español / inglés): interfaz, páginas legales, mails transaccionales, errores de validación del backend y el PDF exportado, con detección automática del idioma.</li>
         <li data-i18n="t046">Exportación del diario a PDF.</li>
         <li data-i18n="t047"><strong>PWA instalable</strong> que funciona offline para leer lo ya guardado, y APK de Android instalable directo generado con Bubblewrap, sin pasar por Play Store.</li>
-        <li data-i18n="t048">Autorización real con FormRequests y Policies (protección contra IDOR), rate limiting en endpoints sensibles y headers CSP.</li>
+        <li data-i18n="t048">Seguridad endurecida: autorización con FormRequests y Policies (protección contra IDOR), CSP en modo bloqueo y headers de seguridad en frontend y backend, rate limiting y rechazo de contraseñas filtradas (Have I Been Pwned, k-Anonymity).</li>
       </ul>
 
       <h4 data-i18n="t041">Stack</h4>
       <ul>
         <li data-i18n="t049"><strong>Frontend:</strong> Vue 3 Composition API, Vite, Vuetify (Material Design 3), Vue Router con guards, Vitest, ESLint y Prettier.</li>
-        <li data-i18n="t050"><strong>Backend:</strong> Laravel 12 sobre PHP 8.4, Sanctum, Socialite, DomPDF, PHPUnit, Larastan/PHPStan nivel 5 y Pint.</li>
+        <li data-i18n="t050"><strong>Backend:</strong> Laravel 12 sobre PHP 8.4, Sanctum, Socialite, Google2FA, DomPDF, PHPUnit (115 tests), Larastan/PHPStan nivel 5 y Pint.</li>
         <li data-i18n="t051"><strong>Datos e infraestructura:</strong> PostgreSQL serverless en Neon con backup diario, Docker y Docker Compose en local, Render con FrankenPHP para el backend y Vercel para el frontend.</li>
         <li data-i18n="t052"><strong>CI/CD:</strong> GitHub Actions con tests y lint obligatorios en cada PR, Dependabot y scheduler por cron.</li>
-        <li data-i18n="t053"><strong>Observabilidad:</strong> Sentry en frontend y backend, más UptimeRobot.</li>
+        <li data-i18n="t053"><strong>Observabilidad:</strong> Sentry en frontend y backend, UptimeRobot y Vercel Analytics.</li>
       </ul>
 
       <h4 data-i18n="t042">Lo más interesante que resolví</h4>
@@ -1072,12 +1083,17 @@
         <li data-i18n="t054">Migré la autenticación de un token en <strong>localStorage</strong> a una cookie <strong>httpOnly</strong>, a partir de un hallazgo de seguridad real de un compañero de equipo.</li>
         <li data-i18n="t055">Descubrí que <strong>Sanctum sobreescribe SameSite en runtime</strong> sin avisar, lo que rompía la cookie cross-site.</li>
         <li data-i18n="t056">Encontré que el patrón estándar de cookie CSRF de Sanctum es incompatible cuando frontend y backend no comparten dominio, porque <code>document.cookie</code> no puede leer una cookie de otro origen. Apareció recién probando con un navegador real, no con <code>curl</code>.</li>
-        <li data-i18n="t057">Auditorías internas de seguridad y arquitectura (OWASP, SOLID, Clean Architecture) con remediación completa.</li>
+        <li data-i18n="cm03">Cerré una <strong>condición de carrera</strong> en los códigos de recuperación del 2FA: dos requests simultáneos con el mismo código podían loguearse los dos. Lo resolví bloqueando la fila del usuario (<code>lockForUpdate</code>) dentro de una transacción.</li>
+        <li data-i18n="cm04">El login tardaba distinto según si el email existía o no, lo que permitía <strong>enumerar cuentas</strong> midiendo el tiempo de respuesta. Ahora los dos caminos hashean y responden igual.</li>
+        <li data-i18n="t057">Auditorías internas de seguridad y arquitectura (OWASP, SOLID, Clean Architecture) con remediación completa; por ejemplo, un reset de contraseña ahora cierra las sesiones abiertas en otros dispositivos.</li>
       </ul>
 
       <div class="pd__actions">
-        <a class="btn btn--primary btn--sm" href="https://github.com/CapyMeal/CapyMeal" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i> Ver repositorio
+        <a class="btn btn--primary btn--sm" href="https://capy-meal.vercel.app" target="_blank" rel="noopener">
+          <i class="fas fa-arrow-up-right-from-square"></i> <span data-i18n="cm05">App en vivo</span>
+        </a>
+        <a class="btn btn--ghost btn--sm" href="https://github.com/CapyMeal/CapyMeal" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> <span data-i18n="cm06">Ver repositorio</span>
         </a>
       </div>
     </div>
@@ -1121,7 +1137,7 @@
 
       <div class="pd__actions">
         <a class="btn btn--primary btn--sm" href="https://github.com/MerAtim/MediConnect" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i> Ver repositorio
+          <i class="fab fa-github"></i> <span data-i18n="cm06">Ver repositorio</span>
         </a>
       </div>
     </div>

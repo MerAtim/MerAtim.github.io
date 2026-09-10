@@ -156,12 +156,12 @@ Programming (UTN). English at C1 level. Focused on backend and full stack roles.
 
 <div class="role">
   <h3>CapyMeal &mdash; Personal food diary (PWA)</h3>
-  <p class="tech">Vue 3, Vuetify, Laravel 12, PHP 8.4, PostgreSQL, Docker, GitHub Actions, Sentry &middot; github.com/CapyMeal/CapyMeal</p>
+  <p class="tech">Vue 3, Laravel 12, PostgreSQL, Docker, GitHub Actions &middot; capy-meal.vercel.app &middot; github.com/CapyMeal/CapyMeal</p>
   <ul>
-    <li>Authentication via httpOnly cross-origin cookie and OAuth2 social login with Google and Microsoft.</li>
+    <li>httpOnly cross-origin cookie, OAuth2 login with Google and Microsoft, and two-factor authentication (2FA, TOTP).</li>
     <li>Migrated the session token from localStorage to an httpOnly cookie following a security finding, resolving real Sanctum incompatibilities in a cross-origin architecture.</li>
-    <li>Installable PWA with offline support and an Android APK built with Bubblewrap.</li>
-    <li>CI/CD with mandatory tests and lint per pull request; production error monitoring with Sentry.</li>
+    <li>Security hardening (enforced CSP, rate limiting, leaked-password rejection) and full Spanish/English support.</li>
+    <li>Installable offline PWA and Android APK; CI/CD with mandatory tests and lint, plus Sentry monitoring.</li>
   </ul>
 </div>
 
