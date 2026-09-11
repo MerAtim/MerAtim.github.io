@@ -338,6 +338,7 @@ window.I18N = { en: {
   "t236": "Testing",
   "t237": "Advanced testing",
   "t238": "View diploma",
+  "ed01": "English applied to software development work and IT teams.",
 
   /* --- Formulario y pie --- */
   "t239": "Name",
