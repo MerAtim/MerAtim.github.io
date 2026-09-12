@@ -136,7 +136,7 @@ window.I18N = { en: {
   "t062": "Architecture decisions",
   "t063": "Web platform for managing appointments and medical records in clinics, with Administrator, Doctor and Patient roles, and different permissions on every endpoint.",
   "t064": "<strong>Appointments:</strong> creation (Administrator only), paginated and filterable listing, and status changes governed by role-based rules. Neither the doctor nor the patient can end up with two appointments at the same time.",
-  "t065": "<strong>Doctors and patients:</strong> create, edit and delete, with directories scoped by role — a Doctor only sees their own patients. Nobody with upcoming appointments can be removed.",
+  "t065": "<strong>Doctors and patients:</strong> create, edit and delete, with directories scoped by role: a Doctor only sees their own patients. Nobody with upcoming appointments can be removed.",
   "t066": "<strong>Medical records:</strong> entries written by the Doctor and text export by the Administrator. Only unlocked by a real appointment that has already taken place and was not cancelled, and the content is stored <strong>encrypted with AES-256-GCM</strong>, not in plain text.",
   "t067": "<strong>Login accounts</strong> kept separate from the profiles, linked by email, with uniqueness enforced at database level.",
   "mc01": "<strong>Revocable sessions:</strong> logging out or changing the password invalidates JWTs already issued, instead of leaving them alive until they expire.",
