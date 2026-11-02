@@ -209,7 +209,7 @@
       <div class="wrap">
         <div class="stats reveal">
           <div class="stat">
-            <div class="stat__num grad-text" data-count="8">8</div>
+            <div class="stat__num grad-text" data-count="9">9</div>
             <div class="stat__label" data-i18n="stat.projects">Proyectos desarrollados</div>
           </div>
           <div class="stat">
@@ -342,7 +342,7 @@
           <p class="section__tag" data-i18n="sec.proj.tag">Portafolio</p>
           <h2 class="section__title" data-i18n="sec.proj.title">Proyectos destacados</h2>
           <p class="section__sub" data-i18n="sec.proj.sub">
-            Cuatro proyectos con arquitectura, tests y despliegue real. Tocá
+            Cinco proyectos con arquitectura y tests, de producción a desarrollo activo. Tocá
             <strong>Ver detalle</strong> para el stack completo y las decisiones técnicas.
           </p>
         </div>
@@ -447,6 +447,40 @@
                 </button>
                 <a class="btn btn--ghost btn--sm" href="https://github.com/MerAtim/MediConnect" target="_blank" rel="noopener">
                   <i class="fab fa-github"></i> <span data-i18n="t225">Código</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Facturador Fácil -->
+          <article class="pcard reveal">
+            <div class="pcard__top pcard__top--a">
+              <span class="pcard__badge" data-i18n="ff01">Personal · En desarrollo</span>
+              <i class="fas fa-file-invoice-dollar pcard__icon"></i>
+            </div>
+            <div class="pcard__body">
+              <h3>Facturador Fácil</h3>
+              <p class="pcard__tagline">React Native · Expo · TypeScript</p>
+              <p class="pcard__desc" data-i18n="ff02">
+                App móvil para emitir comprobantes de ARCA sin vueltas: ingresás el precio que
+                cobrás y calcula el neto y el IVA. Sin servidor intermedio, con la clave privada
+                generada en el teléfono. Todavía no está publicada en las tiendas.
+              </p>
+              <div class="chips">
+                <span class="chip">React Native</span>
+                <span class="chip">Expo</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">Kotlin</span>
+                <span class="chip">SQLite</span>
+                <span class="chip">Vitest</span>
+                <span class="chip">Maestro</span>
+              </div>
+              <div class="pcard__actions">
+                <button class="btn btn--ghost btn--sm js-project" data-project="facturador">
+                  <i class="fas fa-circle-info"></i> <span data-i18n="t220">Ver detalle</span>
+                </button>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/MerAtim/facturador-facil" target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i> <span data-i18n="t224">Código</span>
                 </a>
               </div>
             </div>
@@ -1165,6 +1199,86 @@
 
       <div class="pd__actions">
         <a class="btn btn--primary btn--sm" href="https://github.com/MerAtim/MediConnect" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> <span data-i18n="cm06">Ver repositorio</span>
+        </a>
+      </div>
+    </div>
+  </template>
+
+  <template id="pd-facturador">
+    <div class="pd">
+      <div class="pd__head">
+        <span class="pd__kicker" data-i18n="ff03">Proyecto personal · app móvil · en desarrollo</span>
+        <h3>Facturador Fácil</h3>
+        <p data-i18n="ff04">
+          App móvil para emitir comprobantes electrónicos de ARCA. Nace de las limitaciones del
+          facturador oficial: para una factura A hay que calcular a mano el neto a partir del
+          precio final. Acá ingresás lo que cobrás y la app hace el resto.
+        </p>
+      </div>
+
+      <h4 data-i18n="ff05">El recorrido de una factura</h4>
+      <div class="pd__shots">
+        <figure>
+          <a href="./assets/ff-receptor.png" target="_blank" rel="noopener">
+            <img src="./assets/ff-receptor.png" alt="Pantalla de nueva factura con los datos del cliente completados desde el CUIT" data-i18n-alt="ff10" width="493" height="1020" loading="lazy">
+          </a>
+          <figcaption data-i18n="ff06">Con el CUIT, la app completa los datos del cliente</figcaption>
+        </figure>
+        <figure>
+          <a href="./assets/ff-precio.png" target="_blank" rel="noopener">
+            <img src="./assets/ff-precio.png" alt="Pantalla de nueva factura con un ítem cargado por precio final" data-i18n-alt="ff11" width="502" height="1020" loading="lazy">
+          </a>
+          <figcaption data-i18n="ff07">Cargás el precio que cobrás</figcaption>
+        </figure>
+        <figure>
+          <a href="./assets/ff-revision.png" target="_blank" rel="noopener">
+            <img src="./assets/ff-revision.png" alt="Pantalla de revisión con el neto, el IVA y el total calculados" data-i18n-alt="ff12" width="510" height="1020" loading="lazy">
+          </a>
+          <figcaption data-i18n="ff08">La app discrimina el neto y el IVA</figcaption>
+        </figure>
+        <figure>
+          <a href="./assets/ff-emitida.png" target="_blank" rel="noopener">
+            <img src="./assets/ff-emitida.png" alt="Pantalla de factura emitida con el CAE y el botón para compartir" data-i18n-alt="ff13" width="512" height="1020" loading="lazy">
+          </a>
+          <figcaption data-i18n="ff09">Factura autorizada, lista para compartir</figcaption>
+        </figure>
+      </div>
+      <p class="pd__shots-note" data-i18n="ff14">Capturas con datos de prueba y un ARCA simulado: ninguna factura es real.</p>
+
+      <h4 data-i18n="t060">Funcionalidades</h4>
+      <ul>
+        <li data-i18n="ff15"><strong>Emisión de facturas</strong> por precio final o por precio neto, con el tipo de comprobante según el receptor, y notas de crédito para anular.</li>
+        <li data-i18n="ff16"><strong>Clientes y productos</strong> guardados en el teléfono, y datos del receptor completados desde el padrón de ARCA.</li>
+        <li data-i18n="ff17"><strong>Comprobante para compartir</strong> en PDF, sin salir de la app.</li>
+        <li data-i18n="ff18"><strong>Respaldo cifrado</strong> de los datos locales.</li>
+      </ul>
+
+      <h4 data-i18n="t041">Stack</h4>
+      <ul>
+        <li data-i18n="ff19"><strong>App:</strong> React Native con Expo y TypeScript en modo estricto, con módulos nativos propios en Kotlin.</li>
+        <li data-i18n="ff20"><strong>Estructura:</strong> monorepo con pnpm y Turborepo, con el dominio fiscal, la aplicación y la integración con ARCA en paquetes separados.</li>
+        <li data-i18n="ff21"><strong>Datos:</strong> SQLite cifrada, sin servidor intermedio.</li>
+        <li data-i18n="ff22"><strong>Calidad:</strong> Vitest para tests unitarios, Maestro para pruebas de punta a punta en emulador y GitHub Actions en cada PR.</li>
+      </ul>
+
+      <h4 data-i18n="t062">Decisiones de arquitectura</h4>
+      <ul>
+        <li data-i18n="ff23"><strong>Local first:</strong> la app habla directo con los web services de ARCA. La clave privada se genera en el teléfono, vive en el Keystore de Android y nunca sale del dispositivo.</li>
+        <li data-i18n="ff24"><strong>Dinero en centavos:</strong> los importes son un value object sobre enteros, no números de punto flotante. Un test recorre miles de precios por alícuota para acotar el redondeo del IVA a un centavo.</li>
+        <li data-i18n="ff25"><strong>Modelo de amenazas</strong> escrito y decisiones registradas en ADR. Por ejemplo, la app bloquea las capturas de pantalla porque casi todas las pantallas muestran datos fiscales.</li>
+      </ul>
+
+      <h4 data-i18n="t042">Lo más interesante que resolví</h4>
+      <ul>
+        <li data-i18n="ff26">Firmar los pedidos a ARCA desde React Native, cuyo motor Hermes no trae las herramientas de criptografía de Node ni del navegador. Lo validé en un emulador Android contra homologación.</li>
+        <li data-i18n="ff27">Probar el flujo completo sin depender de ARCA: las pruebas corren contra un servicio simulado, y la CI comprueba en cada PR que ese simulador no llegue al build publicado, donde daría autorizaciones falsas.</li>
+      </ul>
+
+      <p class="pd__note" data-i18n="ff28"><strong>Estado:</strong> en desarrollo. Todavía no está en las tiendas ni validada en iOS, así que por ahora se puede ver el código pero no probar la app.</p>
+
+      <div class="pd__actions">
+        <a class="btn btn--primary btn--sm" href="https://github.com/MerAtim/facturador-facil" target="_blank" rel="noopener">
           <i class="fab fa-github"></i> <span data-i18n="cm06">Ver repositorio</span>
         </a>
       </div>
