@@ -369,6 +369,9 @@ window.I18N = { en: {
   "t237": "Advanced testing",
   "t238": "View diploma",
   "ed01": "English applied to software development work and IT teams.",
+  "ed02": "Complementary courses",
+  "ed03": "Emerging generative AI tools and a Figma workshop.",
+  "ed04": "Generative AI",
 
   /* --- Formulario y pie --- */
   "t239": "Name",
